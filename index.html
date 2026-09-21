@@ -840,6 +840,110 @@ a:not(.btn):not(.brand):not(.mobile-sticky-cta):hover{
     margin-bottom:18px!important;
   }
 }
+</style><style id="qa4-card-alignment">
+/* QA4 — card anatomy + optical logo normalization */
+
+/* 02 Challenges: identical vertical anatomy; persona pills always align */
+#challenges .challenge{
+  display:flex!important;
+  flex-direction:column!important;
+  min-height:252px!important;
+}
+#challenges .challenge .num,
+#challenges .challenge .challenge-num{
+  flex:0 0 auto!important;
+}
+#challenges .challenge h3{
+  min-height:62px!important;
+  height:auto!important;
+  margin-bottom:12px!important;
+}
+#challenges .challenge p{
+  min-height:64px!important;
+  height:auto!important;
+  margin-bottom:14px!important;
+}
+#challenges .challenge .role,
+#challenges .challenge .persona,
+#challenges .challenge .tag,
+#challenges .challenge small{
+  margin-top:auto!important;
+  align-self:flex-start!important;
+}
+
+/* 03 Ormat: optical normalization — reduce emblem/logo footprint inside same logo stage */
+#work .ormat-card .case-logo img,
+#work .ormat-card .logo-stage img,
+#work .ormat-card img[alt*="Ormat" i]{
+  max-width:92px!important;
+  max-height:58px!important;
+  width:auto!important;
+  height:auto!important;
+  object-fit:contain!important;
+}
+
+/* 04 Diagnostics: same anatomy/order/baseline across all three cards */
+#diagnose .tools{
+  align-items:stretch!important;
+}
+#diagnose .tool{
+  display:flex!important;
+  flex-direction:column!important;
+  min-height:318px!important;
+}
+#diagnose .tool .tool-kicker,
+#diagnose .tool .mini{
+  min-height:18px!important;
+}
+#diagnose .tool h3{
+  min-height:72px!important;
+  height:auto!important;
+  margin:20px 0 10px!important;
+  line-height:1.02!important;
+}
+#diagnose .diag-name-explainer{
+  display:block!important;
+  margin-top:6px!important;
+  font-size:10px!important;
+  line-height:1.25!important;
+  letter-spacing:.04em!important;
+  color:#5f7482!important;
+  font-weight:800!important;
+  text-transform:uppercase!important;
+}
+#diagnose .tool>p{
+  min-height:72px!important;
+  margin:0 0 14px!important;
+}
+#diagnose .diag-benefit{
+  min-height:42px!important;
+  margin-top:auto!important;
+  margin-bottom:12px!important;
+}
+#diagnose .tool>a{
+  min-height:24px!important;
+  margin-top:0!important;
+  align-self:flex-start!important;
+}
+
+/* Mobile: preserve ordering but let text grow naturally */
+@media(max-width:900px){
+  #challenges .challenge{
+    min-height:0!important;
+  }
+  #challenges .challenge h3,
+  #challenges .challenge p{
+    min-height:0!important;
+  }
+  #diagnose .tool{
+    min-height:0!important;
+  }
+  #diagnose .tool h3,
+  #diagnose .tool>p,
+  #diagnose .diag-benefit{
+    min-height:0!important;
+  }
+}
 </style></head><body>
 <!-- NEXT// Homepage V4.8.6 — QA verified -->
 <nav class="nav"><div class="wrap navin"><a class="brand" href="#top">NEXT<span>//</span><small>by Blanchard Israel</small></a><div class="menu" id="desktop-menu"><a href="#scale-moment">Scale Moment</a><a href="#challenges">Challenges</a><a href="#diagnose">Diagnose</a><a href="#work">Our Work</a><a href="#how">How We Work</a><a href="#open-programs">Open Programs</a><a href="#people">Experts</a><a href="#why-next">Why NEXT//</a></div><button aria-controls="mobile-menu" aria-expanded="false" aria-label="Open navigation" class="hamburger" type="button"><span></span><span></span><span></span></button><a class="btn" href="mailto:erez@blanchard.co.il">LET'S TALK →</a></div><div aria-hidden="true" class="mobile-menu" id="mobile-menu"><a href="#scale-moment">Scale Moment</a><a href="#challenges">Challenges</a><a href="#diagnose">Diagnose</a><a href="#work">Our Work</a><a href="#how">How We Work</a><a href="#open-programs">Open Programs</a><a href="#people">Experts</a><a href="#why-next">Why NEXT//</a><a class="btn mobile-talk" href="mailto:erez@blanchard.co.il">LET'S TALK →</a></div></nav>
@@ -854,8 +958,8 @@ a:not(.btn):not(.brand):not(.mobile-sticky-cta):hover{
 <div class="challenge" data-tags="cro ceo"><span class="num">06 //</span><h3>Too much sales success lives in too few heads.</h3><p>Top-performer excellence has not yet become repeatable organizational capability.</p><span class="chip">CRO // CEO</span></div>
 <div class="challenge" data-tags="cro"><span class="num">07 //</span><h3>Sales managers are managing forecasts — not improving deals.</h3><p>The management rhythm reports activity but does not consistently improve deal quality.</p><span class="chip">CRO</span></div>
 <div class="challenge" data-tags="cro ceo"><span class="num">08 //</span><h3>Growth is leaking through discounting and inconsistent execution.</h3><p>Value is created in the deal — and too often given away in the final mile.</p><span class="chip">CRO // CEO</span></div>
-</div></div></section><section class="section soft" id="work"><div class="wrap"><div class="section-head"><div><div class="eyebrow">03 // SELECTED EXPERIENCE</div><h2 class="title">What scaling capability looks like <span class="accent">in practice.</span></h2><p class="experience-sub">Selected work with technology and global organizations.</p></div></div><div class="proof-wall"><article class="work-card"><div class="work-badge">ORGANIZATION //</div><img alt="Global-e" class="case-logo" src="assets/img-01-843a2ed04eb6.png"/><h3>One leadership language across 250+ managers and three regions.</h3><small>LEADERSHIP SCALE //</small></article><article class="work-card"><div class="work-badge">ORGANIZATION //</div><div class="logo-stage"><div class="port-mark">PORT</div></div><h3>When people grow from within, leadership needs to grow with them.</h3><small>TWO-YEAR LEADERSHIP JOURNEY //</small></article><article class="work-card"><div class="work-badge">ORGANIZATION //</div><img alt="Similarweb" class="case-logo" src="assets/img-02-9159efc0c5a8.png"/><h3>Building a common leadership language for 90 managers around the world.</h3><small>SLII® // GLOBAL LEADERSHIP //</small></article><article class="work-card"><div class="work-badge">ORGANIZATION //</div><img alt="Ormat" class="case-logo" src="assets/img-03-663e1a1fde5d.png"/><h3>Building leadership infrastructure to support global growth.</h3><small>LEADERSHIP SYSTEM //</small></article><article class="work-card tech-leaders-card"><div class="work-badge">ORGANIZATION //</div><div class="logo-stage anon-stage">GLOBAL GAMING COMPANY //</div><h3>From knowledge holders to knowledge multipliers.</h3><small>TECH LEADERS // INFLUENCE // MENTORING //</small></article><article class="work-card"><div class="work-badge">REVENUE //</div><img alt="Check Point" class="case-logo" src="assets/img-04-19b0b45c0dd1.png"/><h3>Building sales capability across global teams.</h3><small>GLOBAL SALES CAPABILITY //</small></article><article class="work-card"><div class="work-badge">REVENUE //</div><div class="logo-stage"><div aria-label="Gilat" class="gilat-mark">Gilat</div></div><h3>From SKO event to an ongoing global sales process.</h3><small>MEDDIC // LIVE DEALS // SALES LEADERSHIP //</small></article><article class="work-card"><div class="work-badge">REVENUE //</div><div class="logo-stage"><img alt="Cognyte" class="remote-logo" src="assets/img-06-8209648bb259.png"/></div><h3>Building global sales capability over time.</h3><small>MEDDIC // SALES COACHING //</small></article><article class="work-card"><div class="work-badge">REVENUE //</div><div class="logo-stage"><img alt="Deloitte" class="remote-logo" src="assets/img-07-d71d19135378.png"/></div><h3>From professional expert to trusted advisor.</h3><small>MEDDIC // VALUE SELLING // MAPS //</small></article><article class="work-card"><div class="work-badge">REVENUE //</div><div class="logo-stage anon-stage">GLOBAL TECH &amp; DEFENSE COMPANY //</div><h3>Turning MEDDIC into an ongoing global sales operating rhythm.</h3><small>MEDDIC // COACHING // QBR // LIVE DEALS //</small></article></div></div></section>
-<section class="section" id="diagnose"><div class="wrap diag-grid"><div><div class="eyebrow">04 // START WITH A DIAGNOSIS</div><h2 class="title">See where scale is <span class="accent">starting to break.</span></h2><p class="lead">Three focused diagnostics. About 10 minutes each. A clearer view of where to act next.</p></div><div class="tools"><article class="tool"><span class="mark">ORGANIZATION //</span><h3>OWNERSHIP GAP™//</h3><p>Where is dependency limiting ownership and execution?</p><div class="diag-benefit">SEE WHERE OWNERSHIP STOPS — AND DEPENDENCY STARTS.</div><a href="https://growth.blanchard.co.il/ownership-gap/?v=182">TAKE THE DIAGNOSTIC →</a></article><article class="tool"><span class="mark">REVENUE //</span><h3>SP5™//</h3><p>Where is your revenue system strong — and where is it leaking performance?</p><div class="diag-benefit">SEE THE SYSTEM → FIND THE PERFORMANCE GAPS.</div><a href="https://sales.blanchard.co.il/sp5/">ASSESS YOUR REVENUE SYSTEM →</a></article><article class="tool"><span class="mark">CHANGE //</span><h3>CHANGE COMPASS//</h3><p>How ready are your organization and managers to lead AI-driven change?</p><div class="diag-benefit">SEE YOUR CHANGE READINESS → START THE RIGHT CONVERSATION.</div><a href="https://arzon-create.github.io/TheCompassOfChange/">CHECK YOUR READINESS →</a></article></div></div></section>
+</div></div></section><section class="section soft" id="work"><div class="wrap"><div class="section-head"><div><div class="eyebrow">03 // SELECTED EXPERIENCE</div><h2 class="title">What scaling capability looks like <span class="accent">in practice.</span></h2><p class="experience-sub">Selected work with technology and global organizations.</p></div></div><div class="proof-wall"><article class="work-card"><div class="work-badge">ORGANIZATION //</div><img alt="Global-e" class="case-logo" src="assets/img-01-843a2ed04eb6.png"/><h3>One leadership language across 250+ managers and three regions.</h3><small>LEADERSHIP SCALE //</small></article><article class="work-card"><div class="work-badge">ORGANIZATION //</div><div class="logo-stage"><div class="port-mark">PORT</div></div><h3>When people grow from within, leadership needs to grow with them.</h3><small>TWO-YEAR LEADERSHIP JOURNEY //</small></article><article class="work-card"><div class="work-badge">ORGANIZATION //</div><img alt="Similarweb" class="case-logo" src="assets/img-02-9159efc0c5a8.png"/><h3>Building a common leadership language for 90 managers around the world.</h3><small>SLII® // GLOBAL LEADERSHIP //</small></article><article class="work-card ormat-card"><div class="work-badge">ORGANIZATION //</div><img alt="Ormat" class="case-logo" src="assets/img-03-663e1a1fde5d.png"/><h3>Building leadership infrastructure to support global growth.</h3><small>LEADERSHIP SYSTEM //</small></article><article class="work-card tech-leaders-card"><div class="work-badge">ORGANIZATION //</div><div class="logo-stage anon-stage">GLOBAL GAMING COMPANY //</div><h3>From knowledge holders to knowledge multipliers.</h3><small>TECH LEADERS // INFLUENCE // MENTORING //</small></article><article class="work-card"><div class="work-badge">REVENUE //</div><img alt="Check Point" class="case-logo" src="assets/img-04-19b0b45c0dd1.png"/><h3>Building sales capability across global teams.</h3><small>GLOBAL SALES CAPABILITY //</small></article><article class="work-card"><div class="work-badge">REVENUE //</div><div class="logo-stage"><div aria-label="Gilat" class="gilat-mark">Gilat</div></div><h3>From SKO event to an ongoing global sales process.</h3><small>MEDDIC // LIVE DEALS // SALES LEADERSHIP //</small></article><article class="work-card"><div class="work-badge">REVENUE //</div><div class="logo-stage"><img alt="Cognyte" class="remote-logo" src="assets/img-06-8209648bb259.png"/></div><h3>Building global sales capability over time.</h3><small>MEDDIC // SALES COACHING //</small></article><article class="work-card"><div class="work-badge">REVENUE //</div><div class="logo-stage"><img alt="Deloitte" class="remote-logo" src="assets/img-07-d71d19135378.png"/></div><h3>From professional expert to trusted advisor.</h3><small>MEDDIC // VALUE SELLING // MAPS //</small></article><article class="work-card"><div class="work-badge">REVENUE //</div><div class="logo-stage anon-stage">GLOBAL TECH &amp; DEFENSE COMPANY //</div><h3>Turning MEDDIC into an ongoing global sales operating rhythm.</h3><small>MEDDIC // COACHING // QBR // LIVE DEALS //</small></article></div></div></section>
+<section class="section" id="diagnose"><div class="wrap diag-grid"><div><div class="eyebrow">04 // START WITH A DIAGNOSIS</div><h2 class="title">See where scale is <span class="accent">starting to break.</span></h2><p class="lead">Three focused diagnostics. About 10 minutes each. A clearer view of where to act next.</p></div><div class="tools"><article class="tool"><span class="mark">ORGANIZATION //</span><h3>OWNERSHIP GAP™//</h3><p>Where is dependency limiting ownership and execution?</p><div class="diag-benefit">SEE WHERE OWNERSHIP STOPS — AND DEPENDENCY STARTS.</div><a href="https://growth.blanchard.co.il/ownership-gap/?v=182">TAKE THE DIAGNOSTIC →</a></article><article class="tool"><span class="mark">REVENUE //</span><h3>SP5™ //<span class="diag-name-explainer">Sales Performance System Diagnostic</span></h3><p>Where is your revenue system strong — and where is it leaking performance?</p><div class="diag-benefit">SEE THE SYSTEM → FIND THE PERFORMANCE GAPS.</div><a href="https://sales.blanchard.co.il/sp5/">ASSESS YOUR REVENUE SYSTEM →</a></article><article class="tool"><span class="mark">CHANGE //</span><h3>CHANGE COMPASS//</h3><p>How ready are your organization and managers to lead AI-driven change?</p><div class="diag-benefit">SEE YOUR CHANGE READINESS → START THE RIGHT CONVERSATION.</div><a href="https://arzon-create.github.io/TheCompassOfChange/">CHECK YOUR READINESS →</a></article></div></div></section>
 <section class="section dark" id="pov"><div class="wrap pov-grid"><div><div class="eyebrow">05 // OUR POINT OF VIEW</div><h2 class="title">MORE SYSTEM.<br/><span class="accent">NOT MORE<br/>BUREAUCRACY.</span></h2><p class="lead">Growth becomes scalable when individual excellence is converted into shared capability, management rhythm and repeatable execution.</p></div><div class="engines"><article class="engine"><span class="tag">ORGANIZATION //</span><h3>BUILD THE ORGANIZATION.</h3><ul><li>Management infrastructure</li><li>Leadership capability</li><li>Tech &amp; professional leaders</li><li>Future-ready capability</li><li>Global consistency</li></ul></article><article class="engine"><span class="tag">REVENUE //</span><h3>BUILD THE REVENUE ENGINE.</h3><ul><li>Predictable revenue</li><li>Complex deals</li><li>Sales leadership</li><li>Strategic accounts</li><li>Negotiation &amp; margin</li></ul></article><div class="arrowline">INDIVIDUAL EXCELLENCE → SHARED CAPABILITY → REPEATABLE SYSTEM</div><div class="systembar">SCALABLE PERFORMANCE//</div></div><div class="tech-reality-inline"><h2>Different technologies. Similar scaling moments.</h2><div class="industry-list"><span>CYBERSECURITY</span><span>FINTECH</span><span>AI &amp; DATA</span><span>SAAS</span><span>MEDTECH</span><span>DEFENSETECH</span><span>DEEPTECH</span><span>DEVTOOLS</span><span>SEMICONDUCTORS</span><span>GAMING</span><span>FOODTECH</span><span>DIGITAL PLATFORMS</span></div><p>Different products, markets and operating environments — recurring challenges in leadership, execution, ownership and commercial scale.</p></div></div></section>
 <section class="section" id="how"><div class="wrap"><div class="journey-head"><div><div class="eyebrow">06 // HOW WE WORK</div><h2 class="title">The workshop isn't <span class="accent">the finish line.</span></h2></div><div class="toggles"><button class="toggle active" data-journey="leadership">LEADERSHIP JOURNEY</button><button class="toggle" data-journey="revenue">REVENUE JOURNEY</button></div></div><div class="journey-shell"><div class="journey-intro"><div><b id="journeyTitle">BUILD THE MANAGEMENT INFRASTRUCTURE.</b></div><p id="journeyDesc">Build a shared leadership language, strengthen manager capability and embed it into everyday leadership.</p></div><div id="journeyVisual"></div></div></div></section>
 <section><div class="wrap" style="padding:72px 0 28px"><div class="eyebrow">SELECTED CLIENTS //</div><h2 class="title" style="font-size:clamp(38px,4vw,58px)">Selected experience.</h2></div><div class="marquee-wrap"><div class="track"><div class="logo"><img alt="checkpoint" class="cropped-logo" src="assets/img-05-a29e71a14407.png"/></div><div class="logo"><img alt="cognyte" class="cropped-logo" src="assets/img-06-8209648bb259.png"/></div><div class="logo"><img alt="deloitte" class="cropped-logo" src="assets/img-07-d71d19135378.png"/></div><div class="logo"><img alt="globale" class="cropped-logo" src="assets/img-08-f883cff38270.png"/></div><div class="logo"><img alt="ceragon" src="assets/img-09-bf37bea95686.svg"/></div><div class="logo"><img alt="zim" class="cropped-logo" src="assets/img-10-41888559a68a.png"/></div><div class="logo"><img alt="ormat" class="cropped-logo" src="assets/img-11-86d02c805e08.png"/></div><div class="logo"><img alt="similarweb" class="cropped-logo" src="assets/img-12-3216177dbcec.png"/></div><div class="logo"><img alt="nextsilicon" class="cropped-logo" src="assets/img-13-5f06e2a6b64a.png"/></div><div class="logo"><div aria-label="Gilat" class="gilat-mark">Gilat</div></div><div class="logo port-logo">PORT</div><div class="logo logo-new"><img alt="Redis" class="cropped-logo" src="assets/img-14-209887a3c03c.png"/></div><div class="logo logo-new"><img alt="Earnix" class="cropped-logo" src="assets/img-15-b974c8b546d1.png"/></div><div class="logo logo-new"><img alt="Glassbox" class="cropped-logo" src="assets/img-16-1829b8d8cdc8.png"/></div><div class="logo logo-new"><img alt="Personetics" class="cropped-logo" src="assets/img-17-b4f0ebd53e30.png"/></div><div class="logo logo-new"><img alt="The Taray" class="cropped-logo" src="assets/img-18-17e9e4c1bedf.png"/></div><div class="logo logo-new"><img alt="Cloudinary" class="cropped-logo" src="assets/img-19-94b6958f64a7.png"/></div><div class="logo logo-new"><img alt="Walmart Global Tech" class="cropped-logo" src="assets/img-20-795c6b845c7d.png"/></div><div class="logo logo-new"><img alt="J&amp;J MedTech" class="cropped-logo" src="assets/img-21-3b1febfd4649.png"/></div><div class="logo logo-new"><img alt="Medinol" class="cropped-logo" src="assets/img-22-505c7e5856a7.png"/></div><div class="logo logo-new"><img alt="Accellix" class="cropped-logo" src="assets/img-23-320bc69d08fc.png"/></div><div class="logo logo-new"><img alt="Technology client" class="cropped-logo" src="assets/img-24-55d44c0d7e3d.png"/></div><div class="logo logo-new"><img alt="IBEX" class="cropped-logo" src="assets/img-25-5473bfdc751b.png"/></div><div class="logo logo-new"><img alt="Fiverr" class="cropped-logo" src="assets/img-26-6031cebfb8f1.png"/></div><div class="logo"><img alt="MyHeritage" class="cropped-logo" src="assets/img-27-2fbc441a46bb.png"/></div><div class="logo"><img alt="Salesforce" class="cropped-logo" src="assets/img-28-ae3893e439b1.png"/></div><div class="logo"><img alt="Aidoc" class="cropped-logo" src="assets/img-29-aca357f02d0c.png"/></div><div class="logo"><img alt="checkpoint" class="cropped-logo" src="assets/img-05-a29e71a14407.png"/></div><div class="logo"><img alt="cognyte" class="cropped-logo" src="assets/img-06-8209648bb259.png"/></div><div class="logo"><img alt="deloitte" class="cropped-logo" src="assets/img-07-d71d19135378.png"/></div><div class="logo"><img alt="globale" class="cropped-logo" src="assets/img-08-f883cff38270.png"/></div><div class="logo"><img alt="ceragon" src="assets/img-09-bf37bea95686.svg"/></div><div class="logo"><img alt="zim" class="cropped-logo" src="assets/img-10-41888559a68a.png"/></div><div class="logo"><img alt="ormat" class="cropped-logo" src="assets/img-11-86d02c805e08.png"/></div><div class="logo"><img alt="similarweb" class="cropped-logo" src="assets/img-12-3216177dbcec.png"/></div><div class="logo"><img alt="nextsilicon" class="cropped-logo" src="assets/img-13-5f06e2a6b64a.png"/></div><div class="logo"><div aria-label="Gilat" class="gilat-mark">Gilat</div></div><div class="logo port-logo">PORT</div><div class="logo logo-new"><img alt="Redis" class="cropped-logo" src="assets/img-14-209887a3c03c.png"/></div><div class="logo logo-new"><img alt="Earnix" class="cropped-logo" src="assets/img-15-b974c8b546d1.png"/></div><div class="logo logo-new"><img alt="Glassbox" class="cropped-logo" src="assets/img-16-1829b8d8cdc8.png"/></div><div class="logo logo-new"><img alt="Personetics" class="cropped-logo" src="assets/img-17-b4f0ebd53e30.png"/></div><div class="logo logo-new"><img alt="The Taray" class="cropped-logo" src="assets/img-18-17e9e4c1bedf.png"/></div><div class="logo logo-new"><img alt="Cloudinary" class="cropped-logo" src="assets/img-19-94b6958f64a7.png"/></div><div class="logo logo-new"><img alt="Walmart Global Tech" class="cropped-logo" src="assets/img-20-795c6b845c7d.png"/></div><div class="logo logo-new"><img alt="J&amp;J MedTech" class="cropped-logo" src="assets/img-21-3b1febfd4649.png"/></div><div class="logo logo-new"><img alt="Medinol" class="cropped-logo" src="assets/img-22-505c7e5856a7.png"/></div><div class="logo logo-new"><img alt="Accellix" class="cropped-logo" src="assets/img-23-320bc69d08fc.png"/></div><div class="logo logo-new"><img alt="Technology client" class="cropped-logo" src="assets/img-24-55d44c0d7e3d.png"/></div><div class="logo logo-new"><img alt="IBEX" class="cropped-logo" src="assets/img-25-5473bfdc751b.png"/></div><div class="logo logo-new"><img alt="Fiverr" class="cropped-logo" src="assets/img-26-6031cebfb8f1.png"/></div><div class="logo"><img alt="MyHeritage" class="cropped-logo" src="assets/img-27-2fbc441a46bb.png"/></div><div class="logo"><img alt="Salesforce" class="cropped-logo" src="assets/img-28-ae3893e439b1.png"/></div><div class="logo"><img alt="Aidoc" class="cropped-logo" src="assets/img-29-aca357f02d0c.png"/></div></div></div></section>
