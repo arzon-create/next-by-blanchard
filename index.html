@@ -1080,6 +1080,16 @@ a:not(.btn):not(.brand):not(.mobile-sticky-cta):hover{
 @media(prefers-reduced-motion:reduce){
   #pov .tech-reality-inline .industry-list{animation:none!important;transform:none!important}
 }
+</style><style id="qa9-challenge-filter">
+/* QA9 — deterministic persona filtering on desktop + mobile */
+#challenges .challenge.qa9-hidden{display:none!important}
+#challenges .challenge.qa9-visible{display:flex!important}
+#challenges .filter.qa9-active,
+#challenges [data-filter].qa9-active{
+  background:#102432!important;
+  color:#fff!important;
+  border-color:#102432!important;
+}
 </style></head><body>
 <!-- NEXT// Homepage V4.8.6 — QA verified -->
 <nav class="nav"><div class="wrap navin"><a class="brand" href="#top">NEXT<span>//</span><small>by Blanchard Israel</small></a><div class="menu" id="desktop-menu"><a href="#scale-moment">Scale Moment</a><a href="#challenges">Challenges</a><a href="#diagnose">Diagnose</a><a href="#work">Our Work</a><a href="#how">How We Work</a><a href="#open-programs">Open Programs</a><a href="#people">Experts</a><a href="#why-next">Why NEXT//</a></div><button aria-controls="mobile-menu" aria-expanded="false" aria-label="Open navigation" class="hamburger" type="button"><span></span><span></span><span></span></button><a class="btn" href="mailto:erez@blanchard.co.il">LET'S TALK →</a></div><div aria-hidden="true" class="mobile-menu" id="mobile-menu"><a href="#scale-moment">Scale Moment</a><a href="#challenges">Challenges</a><a href="#diagnose">Diagnose</a><a href="#work">Our Work</a><a href="#how">How We Work</a><a href="#open-programs">Open Programs</a><a href="#people">Experts</a><a href="#why-next">Why NEXT//</a><a class="btn mobile-talk" href="mailto:erez@blanchard.co.il">LET'S TALK →</a></div></nav>
@@ -1207,5 +1217,60 @@ document.addEventListener('DOMContentLoaded',()=>{
     ['touchstart','pointerdown','wheel'].forEach(evt=>rail.addEventListener(evt,()=>{clearInterval(timer);setTimeout(start,7000)},{passive:true}));
     start();
   }
+});
+</script><script id="qa9-challenge-filter-logic">
+document.addEventListener('DOMContentLoaded',()=>{
+  const sec=document.getElementById('challenges');
+  if(!sec)return;
+  const buttons=[...sec.querySelectorAll('.filter,[data-filter]')].filter(b=>{
+    const t=(b.textContent||'').trim().toUpperCase();
+    return ['ALL','CHRO','CRO','CEO'].includes(t);
+  });
+  const cards=[...sec.querySelectorAll('.challenge')];
+
+  // Derive persona membership from the visible role pill already present on each card.
+  cards.forEach(card=>{
+    const txt=(card.textContent||'').toUpperCase();
+    const roles=[];
+    ['CHRO','CRO','CEO'].forEach(r=>{ if(txt.includes(r))roles.push(r); });
+    card.dataset.qa9Roles=roles.join(',');
+  });
+
+  function apply(persona, scrollToFirst=false){
+    persona=(persona||'ALL').toUpperCase();
+    buttons.forEach(b=>{
+      const active=(b.textContent||'').trim().toUpperCase()===persona;
+      b.classList.toggle('qa9-active',active);
+      b.setAttribute('aria-pressed',active?'true':'false');
+    });
+    let first=null;
+    cards.forEach(card=>{
+      const roles=(card.dataset.qa9Roles||'').split(',');
+      const show=persona==='ALL'||roles.includes(persona);
+      card.classList.toggle('qa9-hidden',!show);
+      card.classList.toggle('qa9-visible',show);
+      card.hidden=!show;
+      if(show&&!first)first=card;
+    });
+    if(scrollToFirst&&first){
+      setTimeout(()=>first.scrollIntoView({behavior:'smooth',block:'start'}),60);
+    }
+  }
+
+  buttons.forEach(b=>b.addEventListener('click',e=>{
+    e.preventDefault();
+    apply((b.textContent||'').trim(),false);
+  }));
+
+  // Hero deep-links such as Explore CRO Challenges.
+  document.querySelectorAll('a[href*="#challenges"]').forEach(a=>{
+    a.addEventListener('click',()=>{
+      const t=(a.textContent||'').toUpperCase();
+      const p=t.includes('CHRO')?'CHRO':t.includes('CRO')?'CRO':t.includes('CEO')?'CEO':'ALL';
+      setTimeout(()=>apply(p,true),80);
+    });
+  });
+
+  apply('ALL',false);
 });
 </script></body></html>
