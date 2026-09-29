@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Start a Conversation | NEXT// by Blanchard Israel</title>
+<meta content="Tell NEXT// by Blanchard Israel what you are trying to scale next." name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<style>
+:root{--navy:#102b3a;--orange:#f26a21;--cyan:#169ac5;--ink:#17313e;--muted:#64747c;--bg:#f3f6f5;--white:#fff}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,Arial,sans-serif;background:var(--bg);color:var(--ink)}
+a{color:inherit}.top{height:78px;background:var(--navy);display:flex;align-items:center}.topin{width:min(1180px,calc(100% - 44px));margin:auto;display:flex;align-items:center;justify-content:space-between}
+.brand{text-decoration:none;color:#fff;font-weight:900;font-size:29px;letter-spacing:-.055em}.brand small{display:block;color:var(--orange);font-size:10px;letter-spacing:.12em;margin-top:1px}
+.back{font-size:11px;font-weight:800;letter-spacing:.1em;text-decoration:none;color:#c9d5da}.back:hover{color:#fff}
+main{min-height:calc(100vh - 78px);padding:74px 0 84px}.wrap{width:min(1060px,calc(100% - 44px));margin:auto}
+.eyebrow{font-size:11px;font-weight:900;letter-spacing:.16em;color:var(--orange);margin-bottom:14px}
+h1{font-size:clamp(45px,6vw,74px);line-height:.96;letter-spacing:-.055em;color:var(--navy);max-width:790px;margin:0 0 20px}
+.lead{font-size:18px;line-height:1.55;color:var(--muted);max-width:720px;margin:0 0 42px}
+.layout{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(260px,.65fr);gap:28px;align-items:start}
+.formbox{background:#fff;padding:38px;border:1px solid rgba(16,43,58,.1);box-shadow:0 12px 34px rgba(16,43,58,.05)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}.field{margin-bottom:20px}
+label,.legend{display:block;font-size:11px;font-weight:900;letter-spacing:.1em;color:var(--navy);margin-bottom:9px}
+input,textarea{width:100%;border:1px solid #cdd7da;background:#fff;padding:14px 15px;font:inherit;font-size:15px;color:var(--ink);outline:none;border-radius:0}
+input:focus,textarea:focus{border-color:var(--cyan);box-shadow:0 0 0 2px rgba(22,154,197,.1)}textarea{min-height:128px;resize:vertical}
+.optional{font-weight:500;color:#8a989e;letter-spacing:0;text-transform:none}
+.interests{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:4px 0 24px}
+.choice{position:relative}.choice input{position:absolute;opacity:0;pointer-events:none}.choice label{height:100%;margin:0;padding:14px 14px 14px 39px;border:1px solid #d8e0e2;font-size:12px;line-height:1.3;letter-spacing:0;text-transform:none;cursor:pointer;transition:.18s}
+.choice label:before{content:"";position:absolute;left:14px;top:15px;width:14px;height:14px;border:1px solid #9aabb2}
+.choice input:checked+label{border-color:var(--cyan);background:#f3fbfd}.choice input:checked+label:before{background:var(--cyan);box-shadow:inset 0 0 0 3px #fff}
+.submit{border:0;background:var(--orange);color:#fff;font-weight:900;font-size:12px;letter-spacing:.11em;padding:16px 21px;cursor:pointer;width:100%}.submit:hover{filter:brightness(.96)}
+.note{font-size:11px;line-height:1.5;color:#839198;margin:12px 0 0}.side{background:var(--navy);color:#fff;padding:31px}
+.side .tag{font-size:10px;font-weight:900;letter-spacing:.14em;color:var(--orange);margin-bottom:16px}.side h2{font-size:26px;line-height:1.05;letter-spacing:-.03em;margin:0 0 16px}
+.side p{font-size:14px;line-height:1.6;color:#c5d0d5;margin:0 0 25px}.person{border-top:1px solid rgba(255,255,255,.16);padding-top:20px}
+.person strong{display:block;font-size:15px}.person span{font-size:12px;color:#aebdc4}.person a{display:block;color:#62c7e6;font-size:13px;margin-top:10px;text-decoration:none}
+.success{display:none;background:#fff;padding:42px;border-top:3px solid var(--orange)}.success h2{font-size:36px;line-height:1;margin:0 0 14px;color:var(--navy)}.success p{color:var(--muted);line-height:1.55}
+@media(max-width:760px){
+ .top{height:70px}.topin,.wrap{width:calc(100% - 44px)}.brand{font-size:27px}.back{font-size:10px}
+ main{padding:54px 0 66px}h1{font-size:46px}.lead{font-size:16px;margin-bottom:30px}
+ .layout{grid-template-columns:1fr}.formbox{padding:25px 22px}.grid2{grid-template-columns:1fr;gap:0}.interests{grid-template-columns:1fr}.side{padding:25px 22px}
+}
+
+.form-status{display:none;margin:14px 0 0;font-size:12px;line-height:1.5;color:var(--muted)}
+.form-status.show{display:block}
+.form-status.error{color:#a43d22}
+.hidden-frame{display:none;width:0;height:0;border:0}
+</style>
+</head>
+<body>
+<header class="top"><div class="topin">
+<a class="brand" href="../">NEXT//<small>BY BLANCHARD ISRAEL</small></a>
+<a class="back" href="../">← BACK TO NEXT//</a>
+</div></header>
+<main><div class="wrap">
+<div class="eyebrow">LET'S TALK //</div>
+<h1>What are you trying to scale next?</h1>
+<p class="lead">Tell us a little about what you're working on. A few details are enough to start the right conversation.</p>
+<div class="layout">
+<div>
+<div class="formbox" id="contact-form-panel">
+<form id="next-contact-form" action="https://subscribe.responder.co.il/" method="post" target="ravmesser-submit-frame" novalidate>
+  <div class="grid2">
+    <div class="field">
+      <label for="full-name">NAME *</label>
+      <input id="full-name" name="fields[First/Full Name]" type="text" autocomplete="name" required>
+    </div>
+    <div class="field">
+      <label for="company">COMPANY *</label>
+      <input id="company" name="fields[Company]" type="text" autocomplete="organization" required>
+    </div>
+  </div>
+
+  <div class="grid2">
+    <div class="field">
+      <label for="work-email">WORK EMAIL *</label>
+      <input id="work-email" name="fields[subscribers_email]" type="email" autocomplete="email" required>
+    </div>
+    <div class="field">
+      <label for="phone">PHONE <span class="optional">optional</span></label>
+      <input id="phone" name="fields[Mobile Phone]" type="tel" autocomplete="tel">
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="legend">WHAT WOULD YOU LIKE TO TALK ABOUT?</div>
+    <div class="interests" id="interest-options">
+      <div class="choice"><input id="i-leadership" type="checkbox" value="Leadership &amp; Management Systems"><label for="i-leadership">Leadership &amp; Management Systems</label></div>
+      <div class="choice"><input id="i-org" type="checkbox" value="Organization, Culture &amp; Change"><label for="i-org">Organization, Culture &amp; Change</label></div>
+      <div class="choice"><input id="i-revenue" type="checkbox" value="Revenue Performance"><label for="i-revenue">Revenue Performance</label></div>
+      <div class="choice"><input id="i-scale" type="checkbox" value="Capability Building at Scale"><label for="i-scale">Capability Building at Scale</label></div>
+      <div class="choice"><input id="i-unsure" type="checkbox" value="Not sure yet"><label for="i-unsure">Not sure yet</label></div>
+    </div>
+  </div>
+
+  <div class="field">
+    <label for="message">WHAT'S ON YOUR MIND? <span class="optional">optional</span></label>
+    <textarea id="message" name="fields[Message]" placeholder="Challenge, opportunity, upcoming initiative — a few words are enough."></textarea>
+  </div>
+
+  <input id="interest-value" name="fields[Interest]" type="hidden" value="">
+  <input name="fields[Source]" type="hidden" value="NEXT Website">
+  <input type="hidden" name="__ravxx_url__" value="http://form.ravpage.co.il/8ff0948adc92fe8eaa1b9beb26b0a5e456BC8535">
+  <input type="hidden" name="__ravxx_source_info__" value="">
+  <input type="hidden" name="form_id" value="2890977">
+  <input type="hidden" name="encoding" value="utf-8">
+
+  <button class="submit" type="submit">SEND TO EREZ →</button>
+  <p class="note">Your details will be used only to respond to this inquiry.</p>
+  <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+</form>
+<iframe class="hidden-frame" id="ravmesser-submit-frame" name="ravmesser-submit-frame" title="Form submission"></iframe>
+</div>
+
+<div class="success" id="success-panel" tabindex="-1">
+  <div class="eyebrow">THANK YOU //</div>
+  <h2>Let's continue the conversation.</h2>
+  <p>Erez will get back to you personally.</p>
+  <a class="back" style="color:#169ac5" href="../">← BACK TO NEXT//</a>
+</div>
+</div>
+<aside class="side">
+<div class="tag">NEXT// BY BLANCHARD ISRAEL</div>
+<h2>Not a generic inquiry form.</h2>
+<p>The information here helps us understand the conversation you want to have — before we speak.</p>
+<div class="person"><strong>Erez Almogi</strong><span>CEO, Blanchard Israel</span>
+<a href="mailto:erez@blanchard.co.il">erez@blanchard.co.il</a></div>
+</aside>
+</div>
+</div></main>
+
+
+<script>
+(function(){
+  const form = document.getElementById('next-contact-form');
+  const interestValue = document.getElementById('interest-value');
+  const status = document.getElementById('form-status');
+  const panel = document.getElementById('contact-form-panel');
+  const success = document.getElementById('success-panel');
+  const frame = document.getElementById('ravmesser-submit-frame');
+  let submitted = false;
+
+  function selectedInterests(){
+    return Array.from(document.querySelectorAll('#interest-options input[type="checkbox"]:checked'))
+      .map(el => el.value);
+  }
+
+  form.addEventListener('submit', function(e){
+    if (!form.checkValidity()) {
+      e.preventDefault();
+      form.reportValidity();
+      return;
+    }
+
+    interestValue.value = selectedInterests().join(' | ');
+    submitted = true;
+    status.textContent = 'Sending…';
+    status.className = 'form-status show';
+
+    // Fallback so the visitor is never left staring at a loading state if
+    // the cross-origin confirmation page cannot be inspected by the browser.
+    setTimeout(function(){
+      if (submitted && panel.style.display !== 'none') {
+        panel.style.display = 'none';
+        success.style.display = 'block';
+        success.focus({preventScroll:true});
+        success.scrollIntoView({behavior:'smooth', block:'center'});
+      }
+    }, 1800);
+  });
+
+  frame.addEventListener('load', function(){
+    if (!submitted) return;
+    setTimeout(function(){
+      panel.style.display = 'none';
+      success.style.display = 'block';
+      success.focus({preventScroll:true});
+      success.scrollIntoView({behavior:'smooth', block:'center'});
+    }, 250);
+  });
+})();
+</script>
+
+</body></html>
