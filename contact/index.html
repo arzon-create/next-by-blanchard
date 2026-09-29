@@ -13,7 +13,7 @@
 :root{--navy:#102b3a;--orange:#f26a21;--cyan:#169ac5;--ink:#17313e;--muted:#64747c;--bg:#f3f6f5;--white:#fff}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,Arial,sans-serif;background:var(--bg);color:var(--ink)}
 a{color:inherit}.top{height:78px;background:var(--navy);display:flex;align-items:center}.topin{width:min(1180px,calc(100% - 44px));margin:auto;display:flex;align-items:center;justify-content:space-between}
-.brand{text-decoration:none;color:#fff;font-weight:900;font-size:29px;letter-spacing:-.055em}.brand small{display:block;color:var(--orange);font-size:10px;letter-spacing:.12em;margin-top:1px}
+.brand{text-decoration:none;color:#fff;font-weight:900;font-size:29px;letter-spacing:-.055em;line-height:.9;display:flex;flex-direction:column;justify-content:center;overflow:visible;padding:5px 0}.brand small{display:block;color:var(--orange);font-size:10px;line-height:1.1;letter-spacing:.12em;margin-top:6px;white-space:nowrap}
 .back{font-size:11px;font-weight:800;letter-spacing:.1em;text-decoration:none;color:#c9d5da}.back:hover{color:#fff}
 main{min-height:calc(100vh - 78px);padding:74px 0 84px}.wrap{width:min(1060px,calc(100% - 44px));margin:auto}
 .eyebrow{font-size:11px;font-weight:900;letter-spacing:.16em;color:var(--orange);margin-bottom:14px}
@@ -35,9 +35,9 @@ input:focus,textarea:focus{border-color:var(--cyan);box-shadow:0 0 0 2px rgba(22
 .side .tag{font-size:10px;font-weight:900;letter-spacing:.14em;color:var(--orange);margin-bottom:16px}.side h2{font-size:26px;line-height:1.05;letter-spacing:-.03em;margin:0 0 16px}
 .side p{font-size:14px;line-height:1.6;color:#c5d0d5;margin:0 0 25px}.person{border-top:1px solid rgba(255,255,255,.16);padding-top:20px}
 .person strong{display:block;font-size:15px}.person span{font-size:12px;color:#aebdc4}.person a{display:block;color:#62c7e6;font-size:13px;margin-top:10px;text-decoration:none}
-.success{display:none;background:#fff;padding:42px;border-top:3px solid var(--orange)}.success h2{font-size:36px;line-height:1;margin:0 0 14px;color:var(--navy)}.success p{color:var(--muted);line-height:1.55}
+.success{display:none;background:#fff;padding:42px;border-top:3px solid var(--orange)}.success h2{font-size:36px;line-height:1;margin:0 0 14px;color:var(--navy)}.success p{color:var(--muted);line-height:1.55}.success-contact{margin:20px 0 24px!important;font-size:14px}.success-contact strong{color:var(--navy)}.success-contact a{color:var(--cyan);font-weight:800;text-decoration:none}
 @media(max-width:760px){
- .top{height:70px}.topin,.wrap{width:calc(100% - 44px)}.brand{font-size:27px}.back{font-size:10px}
+ .top{height:76px}.topin,.wrap{width:calc(100% - 44px)}.brand{font-size:27px}.brand small{font-size:9px;margin-top:5px}.back{font-size:10px}
  main{padding:54px 0 66px}h1{font-size:46px}.lead{font-size:16px;margin-bottom:30px}
  .layout{grid-template-columns:1fr}.formbox{padding:25px 22px}.grid2{grid-template-columns:1fr;gap:0}.interests{grid-template-columns:1fr}.side{padding:25px 22px}
 }
@@ -117,15 +117,16 @@ input:focus,textarea:focus{border-color:var(--cyan);box-shadow:0 0 0 2px rgba(22
   <div class="eyebrow">THANK YOU //</div>
   <h2>Let's continue the conversation.</h2>
   <p>Erez will get back to you personally.</p>
+  <p class="success-contact"><strong>Erez Almogi</strong> &nbsp;·&nbsp; <a href="tel:+972505272875">0505-272875</a></p>
   <a class="back" style="color:#169ac5" href="../">← BACK TO NEXT//</a>
 </div>
 </div>
 <aside class="side">
 <div class="tag">NEXT// BY BLANCHARD ISRAEL</div>
-<h2>Not a generic inquiry form.</h2>
-<p>The information here helps us understand the conversation you want to have — before we speak.</p>
+<h2>Start the right conversation.</h2>
+<p>Share a little context about what you're working on. It helps us come to the conversation already understanding what matters.</p>
 <div class="person"><strong>Erez Almogi</strong><span>CEO, Blanchard Israel</span>
-<a href="mailto:erez@blanchard.co.il">erez@blanchard.co.il</a></div>
+<a href="mailto:erez@blanchard.co.il">erez@blanchard.co.il</a><a href="tel:+972505272875">0505-272875</a></div>
 </aside>
 </div>
 </div></main>
