@@ -1824,6 +1824,16 @@ a[style*="background: #ff"],a[style*="background-color: #ff"]{
   #selected-clients .marquee-wrap .track{animation:none!important;transform:none!important}
 }
 </style>
+
+<style id="next-desktop-motion-restoration-20261011">
+/* Desktop: restore the original expert marquee. Mobile retains its JS swipe/autoplay. */
+@media (min-width:901px) and (prefers-reduced-motion:no-preference){
+  #people .expert-track{animation:expertScroll 48s linear infinite!important;transform:none;will-change:transform!important}
+  #people .expert-strip:hover .expert-track{animation-play-state:paused!important}
+  /* Client logos on desktop are driven by the existing requestAnimationFrame engine. */
+  #selected-clients .marquee-wrap .track{animation:none!important}
+}
+</style>
 </head><body>
 <!-- NEXT// Homepage V4.8.6 — QA verified -->
 <nav class="nav"><div class="wrap navin"><a aria-label="NEXT by Blanchard Israel" class="brand" href="#top">NEXT//<small>BY BLANCHARD ISRAEL</small></a><div class="menu" id="desktop-menu"><a href="#who-we-are">Who We Are</a><a href="#growth-challenges">Challenges</a><a href="#how-we-help">How We Help</a><a href="#work">Client Projects</a><a href="#people">Experts</a><a href="#diagnose">Diagnostics</a><a href="#open-programs">Open Programs</a><a href="/contact/">Let's Talk</a></div><button aria-controls="mobile-menu" aria-expanded="false" aria-label="Open navigation" class="hamburger" type="button"><span></span><span></span><span></span></button></div><div aria-hidden="true" class="mobile-menu" id="mobile-menu"><a href="#who-we-are">Who We Are</a><a href="#growth-challenges">Challenges</a><a href="#how-we-help">How We Help</a><a href="#work">Client Projects</a><a href="#people">Experts</a><a href="#diagnose">Diagnostics</a><a href="#open-programs">Open Programs</a><a href="/contact/">Let's Talk</a></div></nav>
