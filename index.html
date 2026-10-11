@@ -1849,6 +1849,40 @@ a.mobile-sticky-cta *,#diagnose .v72-tool-cta *,#diagnose .v72-tool a *,
 #diagnose .next-v2-entry-choices .next-v2-entry.secondary{
  background:#fff!important;border-color:#ccdbe4!important;
 }
+</style><style id="next-20261011-rail-contrast-final">
+/* Desktop: restore deterministic, compositor-driven CSS animation.
+   Mobile manual swipe remains unchanged. */
+@keyframes nextClientsContinuous{from{transform:translate3d(0,0,0)}to{transform:translate3d(-50%,0,0)}}
+@keyframes nextExpertsContinuous{from{transform:translate3d(0,0,0)}to{transform:translate3d(calc(-50% - 7px),0,0)}}
+@media(min-width:901px) and (prefers-reduced-motion:no-preference){
+ #selected-clients .marquee-wrap .track{
+   animation:nextClientsContinuous 46s linear infinite!important;
+   animation-play-state:running!important;
+   transform-origin:left center!important;
+ }
+ #people .expert-strip .expert-track{
+   animation:nextExpertsContinuous 55s linear infinite!important;
+   animation-play-state:running!important;
+   transform-origin:left center!important;
+ }
+ #people .expert-strip:hover .expert-track{animation-play-state:running!important}
+}
+/* Contrast: orange CTAs vs. light-colored choice tiles. */
+a.next-v2-hero-cta, .nav a.btn, a.services-v81-cta-link,
+#diagnose a.v72-tool-cta,#diagnose .v72-tool a,
+#diagnose .v72-tool .btn,.mobile-sticky-cta,
+#open-programs a.program-link{color:#fff!important}
+a.next-v2-hero-cta *,a.services-v81-cta-link *,
+#diagnose .v72-tool a *,#open-programs a.program-link *{color:#fff!important}
+#diagnose .next-v2-entry-choices a.next-v2-entry,
+#diagnose .next-v2-entry-choices a.next-v2-entry strong{
+ color:#122a39!important;-webkit-text-fill-color:#122a39!important;opacity:1!important;
+}
+#diagnose .next-v2-entry-choices a.next-v2-entry span{
+ color:#496576!important;-webkit-text-fill-color:#496576!important;opacity:1!important;
+}
+#diagnose .next-v2-entry-choices a.next-v2-entry.primary{background:#fff0df!important}
+#diagnose .next-v2-entry-choices a.next-v2-entry.secondary{background:#fff!important}
 </style></head><body>
 <!-- NEXT// Homepage V4.8.6 — QA verified -->
 <nav class="nav"><div class="wrap navin"><a aria-label="NEXT by Blanchard Israel" class="brand" href="#top">NEXT//<small>BY BLANCHARD ISRAEL</small></a><div class="menu" id="desktop-menu"><a href="#who-we-are">Who We Are</a><a href="#growth-challenges">Challenges</a><a href="#how-we-help">How We Help</a><a href="#work">Client Projects</a><a href="#people">Experts</a><a href="#diagnose">Diagnostics</a><a href="#open-programs">Open Programs</a><a href="/contact/">Let's Talk</a></div><button aria-controls="mobile-menu" aria-expanded="false" aria-label="Open navigation" class="hamburger" type="button"><span></span><span></span><span></span></button></div><div aria-hidden="true" class="mobile-menu" id="mobile-menu"><a href="#who-we-are">Who We Are</a><a href="#growth-challenges">Challenges</a><a href="#how-we-help">How We Help</a><a href="#work">Client Projects</a><a href="#people">Experts</a><a href="#diagnose">Diagnostics</a><a href="#open-programs">Open Programs</a><a href="/contact/">Let's Talk</a></div></nav>
@@ -2250,56 +2284,55 @@ document.addEventListener('DOMContentLoaded',function(){
 })();
 </script>
 
-<script id="next-desktop-rails-hotfix-20261011">
-/* One owner per desktop rail; preserves mobile swiping and respects reduced motion. */
+
+<style id="next-desktop-rails-single-engine-20261011">
+/* One desktop engine: native horizontal scrolling, never CSS transforms. */
+@media (min-width:901px) {
+ #people .expert-strip, #selected-clients .marquee-wrap {
+   overflow-x:auto!important; overflow-y:hidden!important;
+   scroll-behavior:auto!important; scroll-snap-type:none!important;
+ }
+ #people .expert-track, #selected-clients .marquee-wrap .track {
+   animation:none!important; transform:none!important; transition:none!important;
+   will-change:auto!important;
+ }
+}
+</style>
+<script id="next-desktop-rails-single-engine-js-20261011">
 (function(){
- function initRail(containerSelector,trackSelector,itemSelector,speed){
-   const container=document.querySelector(containerSelector);
-   const track=container&&container.querySelector(trackSelector);
-   if(!container||!track)return;
-   const items=Array.from(track.querySelectorAll(':scope > '+itemSelector));
-   if(items.length<4)return;
-   const desktop=window.matchMedia('(min-width:901px)');
-   const reduce=window.matchMedia('(prefers-reduced-motion:reduce)');
-   let offset=0,last=0,distance=0,visible=true,pausedUntil=0;
-   const half=Math.floor(items.length/2);
-   function measure(){
-     if(!items[half])return;
-     distance=items[half].offsetLeft-items[0].offsetLeft;
-     if(distance>0)offset%=distance;
-   }
-   function draw(){
-     if(desktop.matches&&!reduce.matches&&distance>0){
-       track.style.setProperty('transform','translate3d('+(-offset)+'px,0,0)','important');
-     }else{
-       track.style.removeProperty('transform');
-     }
-   }
-   function tick(t){
-     if(!last)last=t;
-     const dt=Math.min((t-last)/1000,.07);last=t;
-     if(desktop.matches&&!reduce.matches&&visible&&!document.hidden&&
-        performance.now()>pausedUntil&&distance>0){
-       offset=(offset+speed*dt)%distance;
-       draw();
-     }else if(!desktop.matches||reduce.matches){draw();}
-     requestAnimationFrame(tick);
-   }
-   // Only direct manual interactions pause movement; merely hovering does not.
-   ['pointerdown','wheel','touchstart','keydown'].forEach(eventName=>{
-     container.addEventListener(eventName,()=>{pausedUntil=performance.now()+4000;},{passive:true});
-   });
-   if('IntersectionObserver' in window){
-     new IntersectionObserver(entries=>{visible=entries[0].isIntersecting;last=0;},{threshold:0}).observe(container);
-   }
-   window.addEventListener('resize',()=>{measure();draw();last=0;},{passive:true});
-   track.querySelectorAll('img').forEach(img=>{if(!img.complete)img.addEventListener('load',measure,{once:true});});
-   measure();draw();requestAnimationFrame(tick);
+ 'use strict';
+ const selectors=['#people .expert-strip','#selected-clients .marquee-wrap'];
+ const desktop=window.matchMedia('(min-width:901px)');
+ const states=[];
+ function setup(selector,speed){
+   const el=document.querySelector(selector); if(!el)return;
+   const state={el,speed,paused:false,last:0};states.push(state);
+   el.addEventListener('mouseenter',()=>state.paused=true);
+   el.addEventListener('mouseleave',()=>state.paused=false);
+   el.addEventListener('focusin',()=>state.paused=true);
+   el.addEventListener('focusout',()=>state.paused=false);
+   el.addEventListener('pointerdown',()=>{state.paused=true;setTimeout(()=>state.paused=false,3500)});
  }
  function init(){
-   initRail('#selected-clients .marquee-wrap','.track','.logo',42);
-   initRail('#people .expert-strip','.expert-track','.expert-card',35);
+   setup(selectors[0],24);setup(selectors[1],32);
+   if(!states.length)return;
+   let last=0;
+   function frame(now){
+     const dt=last?Math.min((now-last)/1000,.08):0;last=now;
+     if(desktop.matches && !document.hidden){
+       for(const state of states){
+         const el=state.el;
+         if(state.paused || el.scrollWidth<=el.clientWidth+2)continue;
+         const max=el.scrollWidth-el.clientWidth;
+         const next=el.scrollLeft+state.speed*dt;
+         el.scrollLeft=next>=max-1?0:next;
+       }
+     }
+     requestAnimationFrame(frame);
+   }
+   requestAnimationFrame(frame);
  }
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
 })();
-</script></body></html>
+</script>
+</body></html>
