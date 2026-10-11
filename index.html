@@ -2278,7 +2278,7 @@ function ready(){
   requestAnimationFrame(frame);
  }
  // Desktop experts + client logos on all screen widths.
- continuous('#people .expert-strip',28,true);
+ // Desktop handled by dedicated transform driver; mobile expert timer below remains intact.
  continuous('#selected-clients .marquee-wrap',36,false);
  // Mobile experts: deliberate card-by-card advancement; manual swiping still works.
  const rail=document.querySelector('#people .expert-strip');
@@ -2299,6 +2299,57 @@ function ready(){
  }
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',ready,{once:true});else ready();
+})();
+</script>
+
+<script id="next-desktop-only-marquee-driver-20261011">
+(function(){
+'use strict';
+function init(){
+  if(window.__nextDesktopMarqueeDriver)return;
+  window.__nextDesktopMarqueeDriver=true;
+  const configs=[
+    {selector:'#people .expert-track', speed:30},
+    {selector:'#selected-clients .marquee-wrap > .track', speed:39}
+  ];
+  const rails=configs.map(cfg=>{
+    const el=document.querySelector(cfg.selector);
+    if(!el)return null;
+    const children=Array.from(el.children);
+    const half=Math.floor(children.length/2);
+    return {el,children,half,speed:cfg.speed,x:0,cycle:0};
+  }).filter(Boolean);
+  let last=0;
+  function measure(r){
+    if(r.children.length<4)return;
+    r.cycle=r.children[r.half].offsetLeft-r.children[0].offsetLeft;
+  }
+  function frame(t){
+    const desktop=window.innerWidth>900;
+    const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    for(const r of rails){
+      if(desktop){
+        if(!r.cycle)measure(r);
+        if(r.cycle>0 && last && !reduced && !document.hidden){
+          r.x=(r.x+r.speed*Math.min((t-last)/1000,.08))%r.cycle;
+        }
+        // Inline important deliberately overrides legacy animation/transform rules.
+        r.el.style.setProperty('animation','none','important');
+        r.el.style.setProperty('transform','translate3d('+(-r.x)+'px,0,0)','important');
+      }else{
+        // Never override mobile styles or mobile carousel behavior.
+        r.el.style.removeProperty('animation');
+        r.el.style.removeProperty('transform');
+        r.x=0;
+      }
+    }
+    last=t;
+    requestAnimationFrame(frame);
+  }
+  window.addEventListener('resize',()=>{rails.forEach(r=>{r.cycle=0;r.x=0});last=0},{passive:true});
+  requestAnimationFrame(frame);
+}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
 })();
 </script>
 </body></html>
