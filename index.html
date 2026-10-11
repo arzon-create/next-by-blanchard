@@ -2279,7 +2279,7 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
  function setup(){
    if(stop){stop();stop=null;}
    if(!mq.matches)return;
-   const pairs=[['#people .expert-strip','.expert-track',34],['#selected-clients .marquee-wrap','.track',42]];
+   const pairs=[['#people .expert-strip','.expert-track',40],['#selected-clients .marquee-wrap','.track',42]];
    const cleanups=[];
    for(const [selector,trackSelector,speed] of pairs){
      const viewport=document.querySelector(selector);
