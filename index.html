@@ -1825,15 +1825,7 @@ a[style*="background: #ff"],a[style*="background-color: #ff"]{
 }
 </style>
 
-<style id="next-desktop-motion-restoration-20261011">
-/* Desktop: restore the original expert marquee. Mobile retains its JS swipe/autoplay. */
-@media (min-width:901px) and (prefers-reduced-motion:no-preference){
-  #people .expert-track{animation:expertScroll 48s linear infinite!important;transform:none;will-change:transform!important}
-  #people .expert-strip:hover .expert-track{animation-play-state:paused!important}
-  /* Client logos on desktop are driven by the existing requestAnimationFrame engine. */
-  #selected-clients .marquee-wrap .track{animation:none!important}
-}
-</style>
+
 </head><body>
 <!-- NEXT// Homepage V4.8.6 — QA verified -->
 <nav class="nav"><div class="wrap navin"><a aria-label="NEXT by Blanchard Israel" class="brand" href="#top">NEXT//<small>BY BLANCHARD ISRAEL</small></a><div class="menu" id="desktop-menu"><a href="#who-we-are">Who We Are</a><a href="#growth-challenges">Challenges</a><a href="#how-we-help">How We Help</a><a href="#work">Client Projects</a><a href="#people">Experts</a><a href="#diagnose">Diagnostics</a><a href="#open-programs">Open Programs</a><a href="/contact/">Let's Talk</a></div><button aria-controls="mobile-menu" aria-expanded="false" aria-label="Open navigation" class="hamburger" type="button"><span></span><span></span><span></span></button></div><div aria-hidden="true" class="mobile-menu" id="mobile-menu"><a href="#who-we-are">Who We Are</a><a href="#growth-challenges">Challenges</a><a href="#how-we-help">How We Help</a><a href="#work">Client Projects</a><a href="#people">Experts</a><a href="#diagnose">Diagnostics</a><a href="#open-programs">Open Programs</a><a href="/contact/">Let's Talk</a></div></nav>
@@ -2222,75 +2214,7 @@ document.addEventListener('DOMContentLoaded',function(){
   });
 });
 </script>
-<script id="next-vnext-marquee-engine">
-/* Continuous, frame-rate-independent marquee; works even when CSS keyframes fail. */
-(function(){
-  function startMarquee(containerSelector, trackSelector, speed){
-    const container=document.querySelector(containerSelector);
-    const track=container&&container.querySelector(trackSelector);
-    if(!container||!track||track.dataset.vnextRunning)return;
-    track.dataset.vnextRunning='true';
-    const items=Array.from(track.children);
-    if(items.length<2)return;
-    const half=Math.floor(items.length/2);
-    let distance=0,offset=0,last=0,frame=0,visible=true;
-    let hovered=false,focused=false;
-    const reduced=window.matchMedia('(prefers-reduced-motion: reduce)');
-    const measure=()=>{
-      if(!items[half])return;
-      distance=items[half].offsetLeft-items[0].offsetLeft;
-      if(distance>0)offset=offset%distance;
-    };
-    const render=()=>{if(!reduced.matches&&distance>0)track.style.transform='translate3d('+(-offset)+'px,0,0)';};
-    const tick=(now)=>{
-      if(!last)last=now;
-      const dt=Math.min((now-last)/1000,.08);last=now;
-      if(!reduced.matches&&visible&&!hovered&&!focused&&distance>0){offset=(offset+speed*dt)%distance;render();}
-      frame=requestAnimationFrame(tick);
-    };
-    const observer=('IntersectionObserver' in window)?new IntersectionObserver(entries=>{visible=entries[0].isIntersecting;last=0;},{threshold:0}):null;
-    if(observer)observer.observe(container);
-    container.addEventListener('mouseenter',()=>{hovered=true});
-    container.addEventListener('mouseleave',()=>{hovered=false;last=0});
-    container.addEventListener('focusin',()=>{focused=true});
-    container.addEventListener('focusout',()=>{focused=false;last=0});
-    reduced.addEventListener&&reduced.addEventListener('change',()=>{if(reduced.matches){track.style.transform='none';offset=0}else{measure();render()}last=0});
-    window.addEventListener('resize',()=>{measure();render()},{passive:true});
-    Array.from(track.querySelectorAll('img')).forEach(img=>{if(!img.complete)img.addEventListener('load',measure,{once:true})});
-    measure();render();frame=requestAnimationFrame(tick);
-  }
-  function init(){
-    if(window.innerWidth>900)startMarquee('#selected-clients','.track',42);
-    // Mobile expert carousel: advance one card using actual viewport geometry.
-    // Desktop CSS animation remains unchanged.
-    const strip=document.querySelector('#people .expert-strip');
-    if(strip && !strip.dataset.nextAutoplay){
-      strip.dataset.nextAutoplay='true';
-      let pauseUntil=0, visible=true;
-      const pause=()=>{pauseUntil=Date.now()+8500};
-      ['touchstart','pointerdown','wheel','keydown'].forEach(type=>strip.addEventListener(type,pause,{passive:true}));
-      strip.addEventListener('focusin',pause);
-      if('IntersectionObserver' in window){
-        new IntersectionObserver(entries=>{visible=entries[0].isIntersecting},{threshold:.1}).observe(strip);
-      }
-      window.setInterval(()=>{
-        if(window.innerWidth>900 || document.hidden || !visible || Date.now()<pauseUntil ||
-           window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
-        const cards=Array.from(strip.querySelectorAll('.expert-card'));
-        if(cards.length<2)return;
-        const max=strip.scrollWidth-strip.clientWidth;
-        if(max<10)return;
-        const current=strip.scrollLeft;
-        const first=cards[0].getBoundingClientRect().left;
-        const next=cards.map(c=>c.getBoundingClientRect().left-first)
-          .find(x=>x>current+15);
-        strip.scrollTo({left:next===undefined || next>max+10?0:Math.min(next,max),behavior:'smooth'});
-      },5500);
-    }
-  }
-  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
-})();
-</script>
+
 
 <button class="next-back-top" type="button" aria-label="Back to top" title="Back to top">
  <svg aria-hidden="true" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></svg>
@@ -2301,6 +2225,80 @@ document.addEventListener('DOMContentLoaded',function(){
  const update=()=>{btn.classList.toggle('is-visible',window.scrollY>650 && window.innerWidth<=700);};
  window.addEventListener('scroll',update,{passive:true});window.addEventListener('resize',update,{passive:true});update();
  btn.addEventListener('click',()=>window.scrollTo({top:0,behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'}));
+})();
+</script>
+
+<style id="next-unified-marquee-20261011">
+/* One animation engine only. Never animate transforms on these two tracks. */
+#people .expert-track, #selected-clients .marquee-wrap .track {
+ animation:none!important; transform:none!important; will-change:auto!important;
+}
+#people .expert-strip, #selected-clients .marquee-wrap {
+ overflow-x:auto!important; overflow-y:hidden!important;
+ scrollbar-width:none!important; scroll-behavior:auto!important;
+}
+#people .expert-strip::-webkit-scrollbar, #selected-clients .marquee-wrap::-webkit-scrollbar {display:none!important}
+@media(min-width:901px){#people .expert-strip{scroll-snap-type:none!important}}
+@media(max-width:900px){#selected-clients .marquee-wrap{scroll-snap-type:none!important}}
+</style>
+<script id="next-unified-marquee-engine-20261011">
+(function(){
+'use strict';
+function ready(){
+ const reduced=window.matchMedia('(prefers-reduced-motion: reduce)');
+ function continuous(selector, speed, desktopOnly){
+  const rail=document.querySelector(selector);
+  if(!rail)return;
+  const track=rail.querySelector('.expert-track, .track');
+  if(!track)return;
+  const items=Array.from(track.children);
+  if(items.length<4)return;
+  const midpoint=Math.floor(items.length/2);
+  let cycle=0,last=0,pausedUntil=0,visible=true;
+  const measure=()=>{cycle=items[midpoint].offsetLeft-items[0].offsetLeft;};
+  const observer=typeof IntersectionObserver==='function'?new IntersectionObserver(e=>{visible=e[0].isIntersecting;last=0;}):null;
+  if(observer)observer.observe(rail);
+  ['pointerdown','touchstart','wheel','keydown','focusin'].forEach(type=>rail.addEventListener(type,()=>{pausedUntil=performance.now()+7000},{passive:true}));
+  rail.addEventListener('mouseenter',()=>{pausedUntil=Infinity});
+  rail.addEventListener('mouseleave',()=>{pausedUntil=performance.now()+1000;last=0});
+  window.addEventListener('resize',()=>{measure();last=0},{passive:true});
+  track.querySelectorAll('img').forEach(img=>{if(!img.complete)img.addEventListener('load',measure,{once:true})});
+  measure();
+  function frame(now){
+   const active=(!desktopOnly||window.innerWidth>900)&&!reduced.matches&&!document.hidden&&visible&&now>=pausedUntil;
+   if(last&&active&&cycle>0){
+    const dt=Math.min((now-last)/1000,.07);
+    let next=rail.scrollLeft+speed*dt;
+    if(next>=cycle)next-=cycle;
+    rail.scrollLeft=next;
+   }
+   last=now;
+   requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+ }
+ // Desktop experts + client logos on all screen widths.
+ continuous('#people .expert-strip',28,true);
+ continuous('#selected-clients .marquee-wrap',36,false);
+ // Mobile experts: deliberate card-by-card advancement; manual swiping still works.
+ const rail=document.querySelector('#people .expert-strip');
+ if(rail){
+  let pausedUntil=0,visible=true;
+  ['pointerdown','touchstart','wheel','keydown','focusin'].forEach(type=>rail.addEventListener(type,()=>{pausedUntil=Date.now()+8000},{passive:true}));
+  if(typeof IntersectionObserver==='function')new IntersectionObserver(e=>{visible=e[0].isIntersecting}).observe(rail);
+  setInterval(()=>{
+   if(window.innerWidth>900||reduced.matches||document.hidden||!visible||Date.now()<pausedUntil)return;
+   const cards=Array.from(rail.querySelectorAll('.expert-card'));
+   if(cards.length<2)return;
+   const max=rail.scrollWidth-rail.clientWidth;
+   if(max<=5)return;
+   const current=rail.scrollLeft;
+   const next=cards.map(c=>c.offsetLeft-cards[0].offsetLeft).find(x=>x>current+8);
+   rail.scrollTo({left:next===undefined||next>max+8?0:Math.min(next,max),behavior:'smooth'});
+  },5500);
+ }
+}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',ready,{once:true});else ready();
 })();
 </script>
 </body></html>
