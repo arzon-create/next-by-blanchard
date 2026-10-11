@@ -1736,7 +1736,6 @@ a.mobile-sticky-cta:focus-visible,#diagnose .tool.v72-tool a:focus-visible,#open
 }
 
 </style>
-
 <style id="next-mobile-final-ux-20261010">
 /* Final mobile adjustments, scoped so desktop layouts remain unchanged. */
 @media (max-width: 700px) {
@@ -1796,7 +1795,6 @@ a.mobile-sticky-cta:focus-visible,#diagnose .tool.v72-tool a:focus-visible,#open
 @media(min-width:701px){.next-back-top{display:none!important}}
 @media(prefers-reduced-motion:reduce){.next-back-top{transition:none}}
 </style>
-
 <style id="next-mobile-carousel-and-cta-repair-20261011">
 /* Mobile only. Desktop carousel timing and presentation remain untouched. */
 @media(max-width:900px){
@@ -1824,9 +1822,22 @@ a[style*="background: #ff"],a[style*="background-color: #ff"]{
   #selected-clients .marquee-wrap .track{animation:none!important;transform:none!important}
 }
 </style>
-
-
-</head><body>
+<style id="next-carousel-css-only-v2-20261011">/* Single native CSS animation per carousel. Both tracks contain two identical halves. */
+@keyframes nextExpertLoopFixed { from {transform:translate3d(0,0,0)} to {transform:translate3d(calc(-50% - 7px),0,0)} }
+@keyframes nextLogoLoopFixed { from {transform:translate3d(0,0,0)} to {transform:translate3d(-50%,0,0)} }
+#people .expert-strip, #selected-clients .marquee-wrap {overflow:hidden!important;}
+#people .expert-track {width:max-content!important;animation:nextExpertLoopFixed 48s linear infinite!important;will-change:transform!important;transform:none;}
+#selected-clients .marquee-wrap .track {width:max-content!important;animation:nextLogoLoopFixed 48s linear infinite!important;will-change:transform!important;transform:none;}
+#people .expert-strip:hover .expert-track, #selected-clients .marquee-wrap:hover .track {animation-play-state:paused!important;}
+@media(max-width:900px){
+ /* Keep existing mobile expert swipe and card-by-card timer unchanged. */
+ #people .expert-strip {overflow-x:auto!important;overflow-y:hidden!important;}
+ #people .expert-track {animation:none!important;transform:none!important;will-change:auto!important;}
+ #selected-clients .marquee-wrap {overflow:hidden!important;}
+ #selected-clients .marquee-wrap .track {animation:nextLogoLoopFixed 42s linear infinite!important;}
+}
+@media(prefers-reduced-motion:reduce){#people .expert-track,#selected-clients .marquee-wrap .track{animation:none!important;}}
+</style></head><body>
 <!-- NEXT// Homepage V4.8.6 — QA verified -->
 <nav class="nav"><div class="wrap navin"><a aria-label="NEXT by Blanchard Israel" class="brand" href="#top">NEXT//<small>BY BLANCHARD ISRAEL</small></a><div class="menu" id="desktop-menu"><a href="#who-we-are">Who We Are</a><a href="#growth-challenges">Challenges</a><a href="#how-we-help">How We Help</a><a href="#work">Client Projects</a><a href="#people">Experts</a><a href="#diagnose">Diagnostics</a><a href="#open-programs">Open Programs</a><a href="/contact/">Let's Talk</a></div><button aria-controls="mobile-menu" aria-expanded="false" aria-label="Open navigation" class="hamburger" type="button"><span></span><span></span><span></span></button></div><div aria-hidden="true" class="mobile-menu" id="mobile-menu"><a href="#who-we-are">Who We Are</a><a href="#growth-challenges">Challenges</a><a href="#how-we-help">How We Help</a><a href="#work">Client Projects</a><a href="#people">Experts</a><a href="#diagnose">Diagnostics</a><a href="#open-programs">Open Programs</a><a href="/contact/">Let's Talk</a></div></nav>
 <header class="hero" id="top"><div class="hero-grid wrap v7-hero-single"><div><div class="eyebrow">NEXT// — FOCUSED ON TECH. POWERED BY BLANCHARD.</div><h1><span class="hero-line-main">Growth creates complexity.</span><span class="hero-line-accent">Build the system to stay ahead.</span></h1><p class="v6-identity">Blanchard Israel’s specialized practice for technology companies navigating growth, scale and AI-driven change.</p><p class="hero-thesis">As your business scales, leadership, decisions and ways of working need to keep pace. NEXT// helps you build the capabilities to stay ahead.</p><div class="hero-signature">LEADERSHIP. EXECUTION. REVENUE.</div><a class="next-v2-hero-cta" href="/contact/">LET’S TALK →</a></div></div></header><section class="section why-band" id="who-we-are"><div class="wrap why-wrap"><div class="eyebrow">WHO WE ARE //</div><h2 class="title why-title">Focused on tech. <span class="accent">Powered by Blanchard.</span></h2><p class="why-lead">NEXT// combines deep experience with technology companies and Blanchard’s global research, proven methodologies and expert network across 70+ countries.</p><div class="why-proof"><div class="why-proof-item"><strong>20+ YEARS</strong><span>Blanchard Israel</span></div><div class="why-proof-item"><strong>70+ COUNTRIES</strong><span>Global Blanchard network</span></div><div class="why-proof-item"><strong>GLOBAL RESEARCH &amp; IP</strong><span>Proven, research-backed methodologies</span></div><div class="why-proof-item"><strong>FOCUSED TECH TEAM</strong><span>Selected industry-relevant experts</span></div></div></div></section><section class="section soft" id="growth-challenges"><div class="wrap"><div class="section-head"><div><div class="eyebrow">GROWTH CHALLENGES //</div><h2 class="title">What needs to <span class="accent">scale with the business?</span></h2><p class="lead v7-challenge-intro">As your business grows, the pressure rarely shows up in one place. It shows up in the decisions, teams and systems that need to keep pace.</p></div></div><div class="challenges"><article class="challenge v7-challenge"><span class="num">01 //</span><h3>LEADERSHIP</h3><p>Your best experts became managers. Are they equipped to lead?</p></article><article class="challenge v7-challenge"><span class="num">02 //</span><h3>MIDDLE MANAGEMENT &amp; EXECUTION</h3><p>The strategy is clear. Why does execution still depend on a few people?</p></article><article class="challenge v7-challenge"><span class="num">03 //</span><h3>OWNERSHIP</h3><p>Why do so many decisions still come back to senior leadership?</p></article><article class="challenge v7-challenge"><span class="num">04 //</span><h3>REVENUE</h3><p>Can sales performance scale beyond your strongest sellers?</p></article><article class="challenge v7-challenge"><span class="num">05 //</span><h3>AI &amp; CHANGE</h3><p>AI is changing the work. Are your managers and teams changing with it?</p></article></div><div class="v7-system-strip">MORE SYSTEM. NOT MORE BUREAUCRACY.</div></div></section>
@@ -2214,10 +2225,8 @@ document.addEventListener('DOMContentLoaded',function(){
   });
 });
 </script>
-
-
-<button class="next-back-top" type="button" aria-label="Back to top" title="Back to top">
- <svg aria-hidden="true" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></svg>
+<button aria-label="Back to top" class="next-back-top" title="Back to top" type="button">
+<svg aria-hidden="true" fill="none" height="21" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="21"><path d="m5 12 7-7 7 7"></path><path d="M12 19V5"></path></svg>
 </button>
 <script id="next-mobile-back-top-20261010">
 (function(){
@@ -2228,58 +2237,11 @@ document.addEventListener('DOMContentLoaded',function(){
 })();
 </script>
 
-<style id="next-unified-marquee-20261011">
-/* One animation engine only. Never animate transforms on these two tracks. */
-#people .expert-track, #selected-clients .marquee-wrap .track {
- animation:none!important; transform:none!important; will-change:auto!important;
-}
-#people .expert-strip, #selected-clients .marquee-wrap {
- overflow-x:auto!important; overflow-y:hidden!important;
- scrollbar-width:none!important; scroll-behavior:auto!important;
-}
-#people .expert-strip::-webkit-scrollbar, #selected-clients .marquee-wrap::-webkit-scrollbar {display:none!important}
-@media(min-width:901px){#people .expert-strip{scroll-snap-type:none!important}}
-@media(max-width:900px){#selected-clients .marquee-wrap{scroll-snap-type:none!important}}
-</style>
 <script id="next-unified-marquee-engine-20261011">
 (function(){
 'use strict';
 function ready(){
  const reduced=window.matchMedia('(prefers-reduced-motion: reduce)');
- function continuous(selector, speed, desktopOnly){
-  const rail=document.querySelector(selector);
-  if(!rail)return;
-  const track=rail.querySelector('.expert-track, .track');
-  if(!track)return;
-  const items=Array.from(track.children);
-  if(items.length<4)return;
-  const midpoint=Math.floor(items.length/2);
-  let cycle=0,last=0,pausedUntil=0,visible=true;
-  const measure=()=>{cycle=items[midpoint].offsetLeft-items[0].offsetLeft;};
-  const observer=typeof IntersectionObserver==='function'?new IntersectionObserver(e=>{visible=e[0].isIntersecting;last=0;}):null;
-  if(observer)observer.observe(rail);
-  ['pointerdown','touchstart','wheel','keydown','focusin'].forEach(type=>rail.addEventListener(type,()=>{pausedUntil=performance.now()+7000},{passive:true}));
-  rail.addEventListener('mouseenter',()=>{pausedUntil=Infinity});
-  rail.addEventListener('mouseleave',()=>{pausedUntil=performance.now()+1000;last=0});
-  window.addEventListener('resize',()=>{measure();last=0},{passive:true});
-  track.querySelectorAll('img').forEach(img=>{if(!img.complete)img.addEventListener('load',measure,{once:true})});
-  measure();
-  function frame(now){
-   const active=(!desktopOnly||window.innerWidth>900)&&!reduced.matches&&!document.hidden&&visible&&now>=pausedUntil;
-   if(last&&active&&cycle>0){
-    const dt=Math.min((now-last)/1000,.07);
-    let next=rail.scrollLeft+speed*dt;
-    if(next>=cycle)next-=cycle;
-    rail.scrollLeft=next;
-   }
-   last=now;
-   requestAnimationFrame(frame);
-  }
-  requestAnimationFrame(frame);
- }
- // Desktop experts + client logos on all screen widths.
- // Desktop handled by dedicated transform driver; mobile expert timer below remains intact.
- continuous('#selected-clients .marquee-wrap',36,true);
  // Mobile experts: deliberate card-by-card advancement; manual swiping still works.
  const rail=document.querySelector('#people .expert-strip');
  if(rail){
@@ -2302,70 +2264,4 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 })();
 </script>
 
-<script id="next-desktop-marquee-single-driver-20261011-fix">
-/* Desktop-only: one transform driver; existing mobile scroll logic is preserved. */
-(function(){
- 'use strict';
- function init(){
-  const mq=window.matchMedia('(min-width:901px)');
-  const reduced=window.matchMedia('(prefers-reduced-motion: reduce)');
-  const configs=[
-   {selector:'#people .expert-track',speed:30},
-   {selector:'#selected-clients .marquee-wrap .track',speed:39}
-  ];
-  const tracks=configs.map(cfg=>{
-   const el=document.querySelector(cfg.selector);
-   if(!el)return null;
-   const items=Array.from(el.children);
-   if(items.length<4||items.length%2!==0)return null;
-   return {el,items,speed:cfg.speed,offset:0,cycle:0};
-  }).filter(Boolean);
-  function measure(r){
-   const half=r.items.length/2;
-   r.cycle=Math.max(0,r.items[half].getBoundingClientRect().left-r.items[0].getBoundingClientRect().left);
-  }
-  function resetMobile(){
-   for(const r of tracks){
-    r.el.style.removeProperty('animation');
-    r.el.style.removeProperty('transform');
-    r.el.style.removeProperty('will-change');
-    r.offset=0;
-   }
-  }
-  let last=0,wasDesktop=false;
-  function frame(now){
-   const desktop=mq.matches;
-   if(!desktop){
-    if(wasDesktop)resetMobile();
-    wasDesktop=false;
-    last=now;
-    requestAnimationFrame(frame);
-    return;
-   }
-   if(!wasDesktop){
-    tracks.forEach(measure);
-    wasDesktop=true;
-   }
-   const dt=last?Math.min((now-last)/1000,.06):0;
-   for(const r of tracks){
-    if(!r.cycle)measure(r);
-    if(r.cycle>0&&!reduced.matches&&!document.hidden){
-     r.offset=(r.offset+r.speed*dt)%r.cycle;
-    }
-    r.el.style.setProperty('animation','none','important');
-    r.el.style.setProperty('will-change','transform');
-    r.el.style.setProperty('transform','translate3d('+(-r.offset)+'px,0,0)','important');
-   }
-   last=now;
-   requestAnimationFrame(frame);
-  }
-  window.addEventListener('resize',()=>{tracks.forEach(r=>{r.cycle=0;r.offset=0});last=0},{passive:true});
-  tracks.forEach(r=>r.el.querySelectorAll('img').forEach(img=>{
-   if(!img.complete)img.addEventListener('load',()=>{r.cycle=0},{once:true});
-  }));
-  requestAnimationFrame(frame);
- }
- if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
-})();
-</script>
 </body></html>
