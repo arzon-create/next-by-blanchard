@@ -1901,6 +1901,40 @@ a[style*="background: #ff"],a[style*="background-color: #ff"]{
  .next-v2-entry{min-height:0}
  .next-v2-hero h1{font-size:clamp(35px,9.2vw,52px)!important;line-height:1.09!important}
 }
+</style><style id="next-v42-diagnostics-alignment">
+/* V4.2: fixed internal anatomy for the three diagnostic cards; carousel logic untouched. */
+#diagnose .v72-tool{
+ display:grid!important;
+ grid-template-rows:22px minmax(74px,auto) minmax(92px,1fr) minmax(46px,auto) auto!important;
+ align-content:stretch!important;
+ align-items:start!important;
+ gap:0!important;
+}
+#diagnose .v72-tool>.mark{grid-row:1!important;align-self:start!important}
+#diagnose .v72-tool>h3{grid-row:2!important;min-height:0!important;margin:12px 0 12px!important;align-self:start!important}
+#diagnose .v72-tool>p{grid-row:3!important;min-height:0!important;margin:0 0 16px!important;align-self:start!important}
+#diagnose .v72-tool>.diag-benefit{grid-row:4!important;min-height:0!important;margin:0 0 14px!important;align-self:end!important}
+#diagnose .v72-tool>a{grid-row:5!important;align-self:end!important;margin:0!important;min-height:38px!important;display:inline-flex!important;align-items:center!important;justify-content:center!important}
+/* Cards are the same height; the longer description gets the flexible middle row. */
+#diagnose .tools>.v72-tool{height:100%!important}
+/* The two entry cards are single links: no nested anchors, and no underlines on explanatory copy. */
+.next-v2-entry,.next-v2-entry:hover,.next-v2-entry:focus-visible,
+.next-v2-entry strong,.next-v2-entry span,.next-v2-entry .next-v41-action{
+ text-decoration:none!important;
+ text-decoration-line:none!important;
+}
+.next-v2-entry:focus-visible{outline:3px solid #259fd2!important;outline-offset:3px!important}
+@media(max-width:900px){
+ #diagnose .v72-tool{
+   grid-template-rows:24px 108px minmax(200px,1fr) 88px 82px!important;
+   min-height:545px!important;
+   height:545px!important;
+ }
+ #diagnose .v72-tool>h3{margin:14px 0 10px!important}
+ #diagnose .v72-tool>p{margin:0 0 12px!important}
+ #diagnose .v72-tool>.diag-benefit{margin:0 0 14px!important}
+ #diagnose .v72-tool>a{max-width:100%!important;min-height:0!important;align-self:end!important}
+}
 </style></head><body>
 <!-- NEXT// Homepage V4.8.6 — QA verified -->
 <nav class="nav"><div class="wrap navin"><a aria-label="NEXT by Blanchard Israel" class="brand" href="#top">NEXT//<small>BY BLANCHARD ISRAEL</small></a><div class="menu" id="desktop-menu"><a href="#who-we-are">Who We Are</a><a href="#growth-challenges">Challenges</a><a href="#how-we-help">How We Help</a><a href="#work">Client Projects</a><a href="#people">Experts</a><a href="#diagnose">Diagnostics</a><a href="#open-programs">Open Programs</a><a href="/contact/">Let's Talk</a></div><button aria-controls="mobile-menu" aria-expanded="false" aria-label="Open navigation" class="hamburger" type="button"><span></span><span></span><span></span></button></div><div aria-hidden="true" class="mobile-menu" id="mobile-menu"><a href="#who-we-are">Who We Are</a><a href="#growth-challenges">Challenges</a><a href="#how-we-help">How We Help</a><a href="#work">Client Projects</a><a href="#people">Experts</a><a href="#diagnose">Diagnostics</a><a href="#open-programs">Open Programs</a><a href="/contact/">Let's Talk</a></div></nav>
