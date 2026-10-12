@@ -2343,7 +2343,7 @@ document.addEventListener('DOMContentLoaded',function(){
 <script id="next-mobile-back-top-20261010">
 (function(){
  const btn=document.querySelector('.next-back-top');if(!btn)return;
- const update=()=>{btn.classList.toggle('is-visible',window.scrollY>650 && window.innerWidth<=700);};
+ const update=()=>{btn.classList.toggle('is-visible',window.scrollY>650);};
  window.addEventListener('scroll',update,{passive:true});window.addEventListener('resize',update,{passive:true});update();
  btn.addEventListener('click',()=>window.scrollTo({top:0,behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'}));
 })();
