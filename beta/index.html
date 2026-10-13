@@ -1954,7 +1954,31 @@ a[style*="background: #ff"],a[style*="background-color: #ff"]{
  #diagnose .v72-tool>.diag-benefit{grid-row:4!important;margin:0!important;padding:9px 0 0!important;align-self:start!important;min-height:0!important}
  #diagnose .v72-tool>a{grid-row:5!important;align-self:end!important;justify-self:end!important;margin:0!important;min-height:36px!important}
 }
-</style></head><body>
+</style><style>
+/* V4.8 — align case-card anatomy after adding action headlines.
+   Desktop/tablet only; mobile horizontal-card layout is unchanged. */
+@media (min-width: 651px) {
+  #work .proof-wall .work-card {
+    display: grid !important;
+    grid-template-rows: 18px 76px 100px minmax(0, 1fr) auto !important;
+    align-content: stretch !important;
+    height: 100% !important;
+  }
+  #work .proof-wall .work-card > .next-case-headline {
+    margin: 12px 0 0 !important;
+    align-self: start !important;
+  }
+  #work .proof-wall .work-card > h3 {
+    margin: 0 !important;
+    align-self: start !important;
+  }
+  #work .proof-wall .work-card > small {
+    margin-top: 14px !important;
+    align-self: end !important;
+  }
+}
+</style>
+</head><body>
 <!-- NEXT// Homepage V4.8.6 — QA verified -->
 <nav class="nav"><div class="wrap navin"><a aria-label="NEXT by Blanchard Israel" class="brand" href="#top">NEXT//<small>BY BLANCHARD ISRAEL</small></a><div class="menu" id="desktop-menu"><a href="#who-we-are">Who We Are</a><a href="#growth-challenges">Challenges</a><a href="#how-we-help">How We Help</a><a href="#work">Client Projects</a><a href="#people">Experts</a><a href="#diagnose">Diagnostics</a><a href="#open-programs">Open Programs</a><a href="/contact/">Let's Talk</a></div><button aria-controls="mobile-menu" aria-expanded="false" aria-label="Open navigation" class="hamburger" type="button"><span></span><span></span><span></span></button></div><div aria-hidden="true" class="mobile-menu" id="mobile-menu"><a href="#who-we-are">Who We Are</a><a href="#growth-challenges">Challenges</a><a href="#how-we-help">How We Help</a><a href="#work">Client Projects</a><a href="#people">Experts</a><a href="#diagnose">Diagnostics</a><a href="#open-programs">Open Programs</a><a href="/contact/">Let's Talk</a></div></nav>
 <header class="hero" id="top"><div class="hero-grid wrap v7-hero-single"><div><div class="eyebrow">NEXT// — FOCUSED ON TECH. POWERED BY BLANCHARD.</div><h1><span class="hero-line-main">Your business is growing.</span><span class="hero-line-accent">Are the ways you lead, execute and sell keeping up?</span></h1><p class="v6-identity">Blanchard Israel’s specialized practice for scaling technology companies.</p><p class="hero-thesis">We help leaders and teams navigate growth, adapt to AI-driven change, and improve execution and sales performance.</p><div class="hero-signature">LEADERSHIP. EXECUTION. REVENUE.</div><a class="next-v2-hero-cta" href="#growth-challenges">EXPLORE THE CHALLENGES →</a><a class="next-v2-hero-cta" href="#diagnose">FIND YOUR STARTING POINT →</a></div></div></header><section class="section why-band" id="who-we-are"><div class="wrap why-wrap"><div class="eyebrow">WHY NEXT//</div><h2 class="title why-title">Global expertise, <span class="accent">applied to your business.</span></h2><p class="why-lead">When the challenge crosses teams, functions or regions, you need more than a standard training program. NEXT// brings Blanchard’s research-backed methods together with local and international experts who understand the business context.</p><div class="why-proof"><div class="why-proof-item"><strong>20+ YEARS</strong><span>Blanchard Israel</span></div><div class="why-proof-item"><strong>70+ COUNTRIES</strong><span>Global Blanchard network</span></div><div class="why-proof-item"><strong>GLOBAL RESEARCH &amp; IP</strong><span>Proven, research-backed methodologies</span></div><div class="why-proof-item"><strong>FOCUSED TECH TEAM</strong><span>Selected industry-relevant experts</span></div></div></div></section><section class="section soft" id="growth-challenges"><div class="wrap"><div class="section-head"><div><div class="eyebrow">GROWTH CHALLENGES //</div><h2 class="title">Sound familiar?</h2><p class="lead v7-challenge-intro">Growth often exposes problems that were manageable when the company was smaller. Decisions take longer, new managers need support, and results can depend too heavily on a few people.</p></div></div><div class="challenges"><article class="challenge v7-challenge"><span class="num">01 //</span><h3>LEADERSHIP</h3><p>Your best experts became managers. Who taught them to lead?</p></article><article class="challenge v7-challenge"><span class="num">02 //</span><h3>MIDDLE MANAGEMENT &amp; EXECUTION</h3><p>The strategy is clear. Why does execution still depend on a few people?</p></article><article class="challenge v7-challenge"><span class="num">03 //</span><h3>OWNERSHIP</h3><p>Why do managers still escalate decisions they could make themselves?</p></article><article class="challenge v7-challenge"><span class="num">04 //</span><h3>REVENUE</h3><p>Can sales performance scale beyond your strongest sellers?</p></article><article class="challenge v7-challenge"><span class="num">05 //</span><h3>AI &amp; THE FUTURE OF WORK</h3><p>AI is changing how work gets done. Are your leaders, teams and ways of working changing with it?</p></article></div></div></section>
