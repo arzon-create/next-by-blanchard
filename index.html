@@ -2252,14 +2252,25 @@ a[style*="background: #ff"],a[style*="background-color: #ff"]{
  #insights .insights-controls{display:flex!important;}
 }
 </style><style id="next-v12-whatsapp">
-.next-whatsapp-float{position:fixed;right:20px;bottom:calc(136px + env(safe-area-inset-bottom));width:44px;height:44px;display:grid;place-items:center;background:#25D366;color:#fff;border-radius:50%;box-shadow:0 5px 18px #071a2a44;z-index:902;transition:transform .2s,box-shadow .2s;text-decoration:none}
+.next-whatsapp-float{position:fixed;right:20px;bottom:calc(18px + env(safe-area-inset-bottom));width:44px;height:44px;display:grid;place-items:center;background:#25D366;color:#fff;border-radius:50%;box-shadow:0 5px 18px #071a2a44;z-index:902;transition:transform .2s,box-shadow .2s;text-decoration:none}
 .next-whatsapp-float:hover{transform:translateY(-2px);box-shadow:0 8px 22px #071a2a55}
 .next-whatsapp-float:focus-visible,.next-whatsapp-talk:focus-visible{outline:3px solid #ff982b;outline-offset:3px}
 .next-whatsapp-float svg{width:25px;height:25px;fill:currentColor}
 .next-whatsapp-talk{display:inline-flex;align-items:center;gap:8px;margin-top:15px;color:#fff;text-decoration:underline;text-underline-offset:4px;font-size:15px}
 .next-whatsapp-talk:hover{color:#ff982b}
+@media(max-width:700px){.next-whatsapp-float{right:20px;bottom:calc(18px + env(safe-area-inset-bottom));width:44px;height:44px}.next-back-top{right:20px;bottom:calc(76px + env(safe-area-inset-bottom))}}
 @media(min-width:701px){.next-whatsapp-float{right:26px;bottom:82px}}
 @media(prefers-reduced-motion:reduce){.next-whatsapp-float{transition:none}}
+</style>
+
+<style id="next-v13-2-whatsapp-mobile-polish">
+/* V13.2: mobile-only WhatsApp size and hero breathing room. */
+@media (max-width:700px) {
+  .next-whatsapp-float { width:40px !important; height:40px !important; right:20px !important; bottom:calc(18px + env(safe-area-inset-bottom)) !important; }
+  .next-whatsapp-float svg { width:22px !important; height:22px !important; }
+  .next-back-top { bottom:calc(72px + env(safe-area-inset-bottom)) !important; }
+  .hero { padding-bottom:92px !important; }
+}
 </style>
 </head><body>
 <!-- NEXT// Homepage V4.8.6 — QA verified -->
