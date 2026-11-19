@@ -1,0 +1,191 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>NEXT// The Next Chapter — Connected</title><style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap');:root{color-scheme:dark;--bg:#0b0c0d;--panel:#17191b;--ink:#f5f5f3;--muted:#afb1b1;--line:#373a3c;--accent:#e4c7a6}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Manrope,Inter,Arial,sans-serif}button,textarea,input{font:inherit}button{cursor:pointer}.shell{max-width:1100px;margin:auto;min-height:100dvh;padding:22px 18px 34px}.top{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px}.logo{font-weight:800;font-size:25px;letter-spacing:-1.5px}.logo span{color:var(--accent)}.eyebrow{font-size:10px;letter-spacing:2px;font-weight:800;color:var(--accent)}.counter{font-size:11px;color:var(--muted)}.progress{display:flex;gap:5px;margin-bottom:18px}.progress button{height:3px;flex:1;border:0;border-radius:3px;background:#454748;padding:0}.progress button.active{background:var(--accent)}.card{min-height:min(72dvh,720px);border:1px solid #3c3d3f;border-radius:18px;overflow:hidden;position:relative;display:flex;flex-direction:column;background:radial-gradient(circle at 85% 75%,#343638 0%,#17191b 40%,#101112 75%)}.card:before{content:'';position:absolute;right:-18%;top:19%;width:72%;height:55%;border:1px solid #ffffff15;transform:rotate(-28deg);border-radius:50%;pointer-events:none}.card:after{content:'';position:absolute;right:12%;top:25%;width:45%;height:38%;border:1px solid #ffffff10;transform:rotate(-28deg);border-radius:50%;pointer-events:none}.content{padding:clamp(28px,5vw,58px);position:relative;z-index:1;flex:1;display:flex;flex-direction:column;justify-content:center}.kicker{color:var(--accent);font-size:11px;letter-spacing:2px;font-weight:800;text-transform:uppercase;margin-bottom:24px}.headline{font-size:clamp(36px,7vw,80px);line-height:1.02;letter-spacing:-.06em;font-weight:800;max-width:850px;margin:0 0 22px}.headline .accent{color:var(--accent)}.subtitle{font-size:clamp(15px,2vw,22px);line-height:1.55;max-width:620px;color:#f1f0ed;margin:0 0 12px}.detail{font-size:clamp(12px,1.5vw,15px);line-height:1.65;color:#bfc0bf;max-width:640px;margin:0}.bottom{border-top:1px solid var(--line);padding:20px 28px;display:flex;justify-content:space-between;align-items:center;gap:15px;position:relative;z-index:1;background:#0e0f10b8}.ask{font-size:12px;font-weight:800;letter-spacing:.4px}.cta{border:1px solid var(--accent);background:var(--accent);color:#111;padding:13px 17px;border-radius:100px;font-size:12px;font-weight:800}.nav{display:flex;justify-content:space-between;align-items:center;margin-top:18px;gap:12px}.nav button{border:1px solid #454749;background:#191b1d;color:white;border-radius:100px;padding:12px 19px;font-size:12px}.nav button:disabled{opacity:.25}.hint{color:#8e9091;font-size:10px;text-align:center}.overlay{position:fixed;inset:0;background:#000b;z-index:10;display:none;align-items:end;justify-content:center}.overlay.open{display:flex}.sheet{background:#f4f2ed;color:#141414;width:100%;max-width:650px;border-radius:22px 22px 0 0;padding:25px;max-height:90dvh;overflow:auto}.sheet h2{font-size:26px;letter-spacing:-1px;margin:10px 0}.sheet p{color:#555;font-size:13px;line-height:1.5}.choice{display:flex;align-items:center;gap:10px;padding:13px 0;border-bottom:1px solid #ddd;font-size:13px}.choice input{accent-color:#222}.sheet textarea{width:100%;min-height:100px;background:white;color:#111;border:1px solid #d0d0d0;border-radius:12px;padding:12px;margin:15px 0;resize:vertical}.sheet .actions{display:flex;gap:10px}.sheet .actions button{flex:1;border-radius:100px;border:1px solid #111;padding:13px;font-size:12px;font-weight:800}.sheet .actions .primary{background:#111;color:white}.note{font-size:11px;color:#666;margin-top:13px}.index{display:grid;grid-template-columns:repeat(7,1fr);gap:7px;margin:20px 0}.index button{border:1px solid #393b3d;background:#1a1b1d;border-radius:8px;color:#aeb0b0;padding:8px 2px;font-size:10px}.index button.selected{color:#fff;border-color:var(--accent)}@media(min-width:800px){.shell{padding-top:35px}.card{min-height:650px}.sheet{border-radius:22px;margin-bottom:35px}.overlay{align-items:end}}@media(max-width:420px){.bottom{padding:17px}.ask{font-size:10px}.cta{font-size:11px;padding:12px}.headline{font-size:clamp(33px,9vw,47px)}.card{min-height:68dvh}.content{padding:28px}}
+
+/* QA typography and responsive spacing, v2 */
+:root{font-synthesis:none}html{-webkit-text-size-adjust:100%}body{overflow-wrap:break-word}button{min-height:44px}.shell{padding-top:max(22px,env(safe-area-inset-top));padding-bottom:max(30px,env(safe-area-inset-bottom))}.top{gap:16px;flex-wrap:wrap;margin-bottom:26px}.top .eyebrow{text-align:right;font-size:11px;line-height:1.5;letter-spacing:1.1px}.logo{flex-shrink:0}.card{min-height:600px}.content{justify-content:center;gap:0}.kicker{font-size:12px;line-height:1.5;margin-bottom:26px}.headline{font-family:Manrope,Inter,Arial,sans-serif;line-height:1.12;letter-spacing:-.045em;overflow-wrap:normal;hyphens:none;margin-bottom:24px}.subtitle{font-size:clamp(17px,2vw,22px);line-height:1.5;margin-bottom:16px}.detail{font-size:clamp(14px,1.5vw,16px);line-height:1.7}.bottom{min-height:88px}.ask{font-size:12px;line-height:1.5;letter-spacing:.25px;max-width:58%}.cta{font-size:13px;line-height:1.35;white-space:normal;text-align:center;max-width:48%}.nav button{font-size:13px}.counter{font-size:12px}.hint{font-size:12px;line-height:1.6}.sheet p,.choice{font-size:15px}.sheet h2{font-size:clamp(22px,5vw,28px);line-height:1.2}.sheet textarea{font-size:16px}.sheet .actions button{font-size:14px}.note{font-size:12px;line-height:1.5}.index button{font-size:12px;min-height:42px}
+@media(max-width:600px){.shell{padding-left:16px;padding-right:16px}.top{align-items:flex-start}.top .eyebrow{max-width:55%;font-size:10px}.card{min-height:calc(100svh - 225px);min-height:max(540px,calc(100svh - 225px))}.content{padding:clamp(25px,7vw,38px);justify-content:center}.kicker{margin-bottom:23px;font-size:11px}.headline{font-size:clamp(31px,8.3vw,49px);line-height:1.13;letter-spacing:-.045em;margin-bottom:23px}.subtitle{font-size:17px;line-height:1.5}.detail{font-size:14px;line-height:1.65}.bottom{padding:17px 20px;gap:12px;align-items:center}.ask{font-size:11px;max-width:53%}.cta{font-size:12px;max-width:47%;padding:12px 14px}.nav{margin-top:16px}.nav button{padding:10px 15px}.sheet{padding:24px 20px max(24px,env(safe-area-inset-bottom))}}
+@media(max-width:360px){.shell{padding-left:12px;padding-right:12px}.logo{font-size:23px}.top .eyebrow{font-size:9px}.content{padding:23px}.headline{font-size:clamp(28px,8.1vw,34px)}.subtitle{font-size:16px}.detail{font-size:13.5px}.bottom{padding:14px;gap:8px}.ask{font-size:10px}.cta{font-size:11px;padding:11px 10px}}
+@media(max-height:700px) and (max-width:600px){.card{min-height:550px}.content{padding-top:30px;padding-bottom:30px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+
+/* V3: mobile-first, single-screen cards */
+@media(max-width:799px){
+ html,body{height:100%;overscroll-behavior:none}
+ .shell{height:100dvh;min-height:0;max-width:none;padding:calc(10px + env(safe-area-inset-top)) 14px calc(10px + env(safe-area-inset-bottom));display:flex;flex-direction:column;gap:10px;overflow:hidden}
+ .top{flex:0 0 auto;min-height:36px;margin:0;align-items:center;flex-wrap:nowrap;gap:10px}
+ .logo{font-size:24px}.top .eyebrow{font-size:9px;letter-spacing:.6px;line-height:1.3;max-width:55%;text-align:right}
+ .progress,.index,.hint{display:none!important}
+ .card{flex:1 1 auto;min-height:0!important;height:auto;max-height:none;border-radius:19px}
+ .content{padding:clamp(19px,5vw,29px);justify-content:center;min-height:0;gap:0}
+ .kicker{font-size:10px;letter-spacing:1.5px;line-height:1.3;margin-bottom:clamp(9px,2.2vh,19px)}
+ .headline{font-size:clamp(25px,7.1vw,37px);line-height:1.09;letter-spacing:-.047em;margin-bottom:clamp(12px,2.1vh,21px)}
+ .subtitle{font-size:clamp(14px,3.8vw,17px);line-height:1.4;margin-bottom:clamp(9px,1.8vh,15px)}
+ .detail{font-size:clamp(12px,3.2vw,14px);line-height:1.52}
+ .bottom{flex:0 0 auto;min-height:0;padding:12px 17px;gap:10px}
+ .ask{font-size:10px;line-height:1.35;max-width:55%}
+ .cta{font-size:11px;padding:11px 12px;max-width:50%;min-height:42px}
+ .nav{flex:0 0 auto;margin:0;min-height:42px;gap:8px}
+ .nav button{font-size:12px;min-height:40px;padding:9px 15px}
+ .counter{font-size:12px}
+ .overlay{align-items:flex-end;overflow:hidden}
+ .sheet{height:min(91dvh,780px);max-height:calc(100dvh - 12px);border-radius:22px 22px 0 0;padding:0;display:flex;flex-direction:column;overflow:hidden}
+ .sheet-scroll{flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;padding:23px 22px 15px}
+ .sheet h2{font-size:clamp(23px,6vw,29px);line-height:1.17;margin:12px 0}
+ .sheet p{font-size:15px;line-height:1.45}
+ .choice{font-size:15px;min-height:49px;padding:12px 0}
+ .choice input{width:19px;height:19px;flex-shrink:0}
+ .sheet textarea{min-height:85px;font-size:16px;margin:14px 0 0}
+ .sheet-footer{flex:0 0 auto;padding:12px 20px calc(15px + env(safe-area-inset-bottom));background:#f4f2ed;border-top:1px solid #ddd}
+ .sheet .actions button{min-height:48px;font-size:14px}
+ .note{margin-top:8px;font-size:11px;line-height:1.3}
+}
+@media(max-width:799px) and (max-height:740px){
+ .shell{gap:7px;padding-top:8px;padding-bottom:8px}
+ .top{min-height:31px}.logo{font-size:21px}
+ .content{padding:18px 21px}.kicker{margin-bottom:8px;font-size:9px}
+ .headline{font-size:clamp(23px,6.5vw,31px);margin-bottom:10px}
+ .subtitle{font-size:14px;margin-bottom:9px}.detail{font-size:12px;line-height:1.43}
+ .bottom{padding:9px 14px}.cta{min-height:38px;padding:8px 10px}
+ .nav{min-height:36px}.nav button{min-height:36px}
+}
+@media(max-width:360px){.headline{font-size:clamp(22px,6.7vw,27px)}.content{padding:16px}.detail{font-size:11.5px}}
+
+/* V4: legible, top-aligned, true viewport-fit mobile cards */
+@media(max-width:799px){
+ .shell{padding:10px 15px max(12px,env(safe-area-inset-bottom));gap:11px}
+ .top{min-height:38px}
+ .logo{font-size:27px}
+ .top .eyebrow{font-size:10px;line-height:1.3}
+ .card{min-height:0!important}
+ .content{justify-content:flex-start;padding:clamp(25px,4.2vh,42px) 23px 14px;overflow-y:auto;scrollbar-width:none}
+ .content::-webkit-scrollbar{display:none}
+ .kicker{font-size:11px;line-height:1.4;letter-spacing:1.6px;margin-bottom:17px}
+ .headline{font-size:clamp(32px,8.3vw,41px);line-height:1.105;letter-spacing:-.045em;margin-bottom:19px}
+ .subtitle{font-size:clamp(18px,4.7vw,21px);line-height:1.43;margin-bottom:15px}
+ .detail{font-size:clamp(15px,3.85vw,17px);line-height:1.52}
+ .bottom{padding:14px 17px;min-height:72px}
+ .ask{font-size:11px;line-height:1.4}
+ .cta{font-size:13px;min-height:46px;padding:11px 14px}
+ .nav{min-height:45px}.nav button{font-size:14px;min-height:44px;padding:10px 17px}
+ .counter{font-size:13px}
+}
+@media(max-width:799px) and (max-height:760px){
+ .shell{gap:7px;padding-top:7px;padding-bottom:7px}
+ .top{min-height:32px}.logo{font-size:24px}
+ .content{padding:20px 21px 10px}
+ .kicker{margin-bottom:11px}
+ .headline{font-size:clamp(30px,7.8vw,37px);margin-bottom:12px}
+ .subtitle{font-size:17px;margin-bottom:10px}
+ .detail{font-size:14.5px;line-height:1.43}
+ .bottom{padding:9px 14px;min-height:58px}
+ .cta{min-height:42px;font-size:12px}
+ .nav{min-height:40px}.nav button{min-height:40px}
+}
+@media(max-width:360px){.headline{font-size:30px}.detail{font-size:14px}.content{padding-left:18px;padding-right:18px}}
+
+/* V5: readable typography, deliberate use of vertical space */
+@media(max-width:799px){
+ .content{padding:clamp(28px,4.6vh,42px) 23px 18px;justify-content:flex-start;}
+ .kicker{font-size:12px;letter-spacing:1.3px;margin-bottom:20px;}
+ .headline{font-size:clamp(35px,9.4vw,45px);line-height:1.09;margin-bottom:23px;}
+ .subtitle{font-size:clamp(20px,5.25vw,23px);line-height:1.4;margin-bottom:19px;}
+ .detail{font-size:clamp(17px,4.55vw,20px);line-height:1.55;}
+ .ask{font-size:12px;}.cta{font-size:14px;}
+}
+@media(max-width:799px) and (max-height:760px){
+ .content{padding:23px 22px 12px;}
+ .kicker{font-size:11px;margin-bottom:14px;}
+ .headline{font-size:clamp(32px,8.7vw,41px);margin-bottom:16px;}
+ .subtitle{font-size:clamp(18px,4.8vw,21px);margin-bottom:13px;}
+ .detail{font-size:clamp(16px,4.2vw,18px);line-height:1.48;}
+}
+@media(max-width:360px){.content{padding-left:18px;padding-right:18px}.headline{font-size:31px}.detail{font-size:16px}}
+
+/* Connected version */
+.sheet .guest-label{display:block;margin:18px 0 7px;font-size:11px;letter-spacing:1.2px;font-weight:800;color:#4a4036}.sheet #guestName{width:100%;border:1px solid #c9c7c2;background:#fff;color:#151515;border-radius:11px;padding:13px;font-size:16px;min-height:48px}.sheet #guestName:focus,.sheet textarea:focus{outline:2px solid #a88465;outline-offset:1px}.sheet .actions .primary:disabled{opacity:.55;cursor:wait}.note.error{color:#a32626}.note.ok{color:#236c43}.note{min-height:2.5em}
+@media(max-width:799px){.sheet-scroll{padding-top:18px}.sheet .guest-label{margin-top:14px}.sheet textarea{min-height:72px}}
+/* Mobile QA: on short devices allow scrolling instead of clipping content */
+@media(max-width:799px) and (max-height:650px){
+ html,body{height:auto;overscroll-behavior:auto}
+ .shell{height:auto;min-height:100dvh;overflow:visible}
+ .card{flex:none;min-height:calc(100dvh - 115px)!important}
+ .content{padding:20px 20px 18px}
+ .headline{font-size:clamp(29px,8vw,36px)}
+ .subtitle{font-size:17px}.detail{font-size:15px}
+ .nav{margin-top:6px}
+}
+@media(max-width:799px){.sheet .actions button{touch-action:manipulation}.sheet-scroll{-webkit-overflow-scrolling:touch}}
+</style></head><body><main class="shell"><header class="top"><div class="logo">NEXT<span>//</span></div><div class="eyebrow">PRIVATE LEADERSHIP TABLE · 2026</div></header><article class="card"><section class="content"><div class="kicker" id="kicker"></div><h1 class="headline" id="headline"></h1><p class="subtitle" id="subtitle"></p><p class="detail" id="detail"></p></section><footer class="bottom"><div class="ask" id="ask"></div><button class="cta" id="action">Explore →</button></footer></article><div class="nav"><button id="prev">← Previous</button><span class="counter" id="counter"></span><button id="next">Next →</button></div></main><div class="overlay" id="overlay"><section class="sheet"><div class="sheet-scroll"><div class="eyebrow" style="color:#7d6651">YOUR PERSPECTIVE</div><h2 id="sheetTitle"></h2><p id="sheetPrompt"></p><label class="guest-label" for="guestName">YOUR NAME <span aria-hidden="true">*</span></label><input id="guestName" autocomplete="name" placeholder="First and last name" maxlength="120" required><div id="choices"></div><textarea id="comment" placeholder="One thought, idea or introduction..."></textarea></div><div class="sheet-footer"><div class="actions"><button id="close">Back</button><button class="primary" id="copy">Send response</button></div><div class="note" id="status" role="status" aria-live="polite">Responses go to the private event sheet.</div></div></section></div><script>
+const cards=[
+{k:'00 / THE OPPORTUNITY',h:'YOUR NEXT STAGE OF GROWTH NEEDS <span class="accent">MORE THAN A STRATEGY.</span>',s:'It needs an organization built to deliver it.',d:'Growth. Transformation. AI. New markets. NEXT// helps ambitious tech companies build the leadership, sales and organizational systems needed to scale, adapt and perform.',a:'TURN AMBITION INTO PERFORMANCE',b:'Explore NEXT//',q:'Which business challenge should NEXT// help organizations tackle?',opts:['Leadership at scale','Complex B2B sales performance','Organizational systems for growth','Transformation and execution']},
+{k:'01 / THE NEXT CHRO LAB',h:'GREAT CHROs <span class="accent">DON’T GROW ALONE.</span>',s:'A selective leadership community for the next generation of enterprise CHROs.',d:'Executive mentoring. Peer learning. Global expertise. Access to leaders who have already made the journey.',a:'HELP SHAPE THE LAB',b:'Share your perspective',q:'How might you help shape this community?',opts:['Share ideas on the concept','Explore an advisory role','Explore mentoring','Recommend future members']},
+{k:'02 / DEAL RESCUE ROOM',h:'BIG DEALS. <span class="accent">BETTER ODDS.</span>',s:'When a must-win deal is at risk, another sales workshop isn’t the answer.',d:'A focused expert intervention to uncover deal risks, align stakeholders and build a stronger path to winning.',a:'OPEN THE RIGHT DOOR',b:'Suggest a connection',q:'Where could this solution create value?',opts:['Introduce a CRO or VP Sales','Suggest a relevant company','Share a deal challenge or insight']},
+{k:'03 / CHRO SUMMIT',h:'NOT ANOTHER <span class="accent">HR CONFERENCE.</span>',s:'An invitation-only gathering for the people shaping the future of HR leadership.',d:'Less stage time. More candid dialogue, real dilemmas and meaningful executive connections.',a:'HELP DESIGN THE EXPERIENCE',b:'Shape the summit',q:'What would make this a must-attend gathering?',opts:['Suggest a bold theme','Recommend a speaker','Explore a partnership','Help shape the format']},
+{k:'04 / THE WILD CARD',h:'WHAT ARE <span class="accent">WE MISSING?</span>',s:'The next big idea might be yours.',d:'Which business challenge, unmet need or unexpected opportunity should NEXT// explore next?',a:'BRING YOUR BOLDEST IDEA',b:'Share an idea',q:'What should we create, challenge or rethink?',opts:['A new business solution','A new community or experience','An unexpected partnership','Something else entirely']},
+{k:'05 / A PERSONAL INVITATION',h:'2027. <span class="accent">OUR BEST YEAR EVER.</span>',s:'And maybe just the beginning of our best decade yet.',d:'Big ambitions. Bold ideas. Great people. I’d love your perspective, your connections — and a few doors you could help us open.',a:'BE PART OF THE STORY',b:'Be part of it',q:'What could make 2027 extraordinary?',opts:['An introduction worth making','An opportunity worth exploring','A bold idea worth trying','Count me in for a conversation']},
+{k:'06 / THE INVITATION',h:'THE BEST IDEAS <span class="accent">DON’T HAPPEN ALONE.</span>',s:'Neither does what’s NEXT.',d:'Your experience. Your perspective. Your connections. Let’s turn the ideas on the table into something extraordinary.',a:'LET’S BUILD WHAT’S NEXT. TOGETHER.',b:'Leave one thought',q:'What is one next step we should take together?',opts:['Let’s continue the conversation','I have someone to introduce','I want to help shape an initiative','I have another idea']}
+];
+const ENDPOINT = 'https://script.google.com/macros/s/AKfycby1tDDCor6jPU4GnxivUzXQyVhroWSWYDoswagvQJ2-TDWVhca8P4bwkdhGkJaxmLFeCw/exec';
+const $=id=>document.getElementById(id);
+let current=0;
+let guestName='';
+try{guestName=localStorage.getItem('next_guest_name')||''}catch(e){}
+const drafts={};
+function render(){
+ const c=cards[current];
+ $('kicker').textContent=c.k;$('headline').innerHTML=c.h;
+ $('subtitle').textContent=c.s;$('detail').textContent=c.d;
+ $('ask').textContent=c.a;$('action').textContent=c.b+' ↗';
+ $('counter').textContent=`${String(current+1).padStart(2,'0')} / 07`;
+ $('prev').disabled=current===0;$('next').disabled=current===cards.length-1;
+}
+function go(n){current=Math.max(0,Math.min(cards.length-1,n));render()}
+$('prev').onclick=()=>go(current-1);$('next').onclick=()=>go(current+1);
+function closeSheet(){
+ if($('overlay').classList.contains('open')){
+  drafts[current]={selected:[...$('choices').querySelectorAll('input:checked')].map(x=>Number(x.value)),comment:$('comment').value};
+ }
+ $('overlay').classList.remove('open');
+}
+function setStatus(message,type=''){$('status').textContent=message;$('status').className='note '+type}
+$('action').onclick=()=>{
+ const c=cards[current],d=drafts[current]||{selected:[],comment:''};
+ $('sheetTitle').textContent=c.a;$('sheetPrompt').textContent=c.q;
+ $('choices').innerHTML=c.opts.map((x,i)=>`<label class="choice"><input type="checkbox" value="${i}" ${d.selected.includes(i)?'checked':''}><span>${x}</span></label>`).join('');
+ $('guestName').value=guestName;
+ $('comment').value=d.comment;
+ $('copy').disabled=false;
+ setStatus('Responses go to the private event sheet.');
+ $('overlay').classList.add('open');
+ document.querySelector('.sheet-scroll').scrollTop=0;
+};
+$('close').onclick=closeSheet;
+$('overlay').onclick=e=>{if(e.target===$('overlay'))closeSheet()};
+$('copy').onclick=async()=>{
+ const c=cards[current];
+ const name=$('guestName').value.trim();
+ const selected=[...$('choices').querySelectorAll('input:checked')].map(x=>c.opts[Number(x.value)]);
+ const comment=$('comment').value.trim();
+ if(!name){setStatus('Please enter your name before sending.','error');$('guestName').focus();return}
+ if(!selected.length&&!comment){setStatus('Please select an option or add a comment.','error');return}
+ guestName=name;
+ try{localStorage.setItem('next_guest_name',name)}catch(e){}
+ drafts[current]={selected:[...$('choices').querySelectorAll('input:checked')].map(x=>Number(x.value)),comment};
+ const submissionId='next-'+Date.now()+'-'+Math.random().toString(36).slice(2,11);
+ const params=new URLSearchParams({guestName:name,cardId:String(current).padStart(2,'0'),cardTitle:c.k,contribution:selected.join(' | '),comment,submissionId});
+ $('copy').disabled=true;
+ setStatus('Sending your response…');
+ try{
+   // Apps Script does not expose CORS response headers to static websites.
+   // no-cors sends the request, but cannot prove successful storage.
+   await fetch(ENDPOINT,{method:'POST',mode:'no-cors',body:params,redirect:'follow'});
+   setStatus('Submission requested. Thank you! Delivery will be checked in the event response sheet.','ok');
+   $('copy').textContent='Submitted ✓';
+   setTimeout(()=>{closeSheet();$('copy').textContent='Send response';$('copy').disabled=false},1100);
+ }catch(err){
+   setStatus('Could not send. Please check your connection and try again.','error');
+   $('copy').disabled=false;
+ }
+};
+render();
+</script></body></html>
